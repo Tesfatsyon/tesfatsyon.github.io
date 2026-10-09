@@ -1,0 +1,406 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="description" content="Tesfatsyon Simon Ochono, PhD candidate in Civil and Environmental Engineering at Western University: building energy, climate-adaptive design optimization and machine learning.">
+<title>Tesfatsyon S. Ochono</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wght@500;600;700&family=IBM+Plex+Mono:wght@400;500&family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,600;1,8..60,400&display=swap">
+<style>
+/* Layout: academic CV page; section labels sit in a narrow left rail, content on the right; stacks to one column on phones */
+:root {
+  --accent: #1d5c86;
+  --accent-soft: #e2ecf4;
+  --done: #2e6b4c;
+  --done-soft: #e3f0e8;
+  --font-display: "Archivo", "Helvetica Neue", Arial, sans-serif;
+  --font-body: "Source Serif 4", Georgia, "Times New Roman", serif;
+  --font-mono: "IBM Plex Mono", ui-monospace, Menlo, Consolas, monospace;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --bg: #0f151a;
+    --surface: #161e25;
+    --ink: #e3e9ee;
+    --muted: #9ba8b3;
+    --rule: #29343e;
+    --accent: #84b9de;
+    --accent-soft: #1a2b38;
+    --done: #8ccaa8;
+    --done-soft: #17291f;
+    color-scheme: dark;
+  }
+}
+:root[data-theme="dark"] {
+  --bg: #0f151a;
+  --surface: #161e25;
+  --ink: #e3e9ee;
+  --muted: #9ba8b3;
+  --rule: #29343e;
+  --accent: #84b9de;
+  --accent-soft: #1a2b38;
+  --done: #8ccaa8;
+  --done-soft: #17291f;
+  color-scheme: dark;
+}
+
+* { box-sizing: border-box; }
+body {
+  background: var(--bg);
+  color: var(--ink);
+  font-family: var(--font-body);
+  font-size: 1.0625rem;
+  line-height: 1.6;
+}
+.page {
+  max-width: 66rem;
+  margin-inline: auto;
+  padding-inline: clamp(16px, 4vw, 48px);
+  padding-block: clamp(2rem, 6vw, 4rem) 3rem;
+}
+a { color: var(--accent); text-underline-offset: 0.18em; text-decoration-thickness: 1px; }
+a:hover { text-decoration-thickness: 2px; }
+a:focus-visible, button:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; border-radius: 3px; }
+p { margin: 0; }
+h1, h2, h3 { font-family: var(--font-display); text-wrap: balance; margin: 0; }
+
+/* Masthead */
+.masthead { display: grid; gap: 1.1rem; padding-bottom: 2.25rem; }
+.eyebrow {
+  font-family: var(--font-mono);
+  font-size: 0.78rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+h1 {
+  font-size: clamp(2.3rem, 6vw, 3.6rem);
+  font-weight: 700;
+  line-height: 1.04;
+  letter-spacing: -0.015em;
+}
+.lede { max-width: 40rem; font-size: 1.15rem; color: var(--ink); }
+.affil { color: var(--muted); max-width: 40rem; }
+.links { list-style: none; padding: 0; margin: 0; display: flex; flex-wrap: wrap; gap: 0.5rem 1.25rem; font-family: var(--font-display); font-weight: 500; font-size: 0.98rem; }
+.contact { display: flex; flex-wrap: wrap; align-items: center; gap: 0.5rem 0.75rem; font-size: 0.98rem; }
+.contact .label { font-family: var(--font-mono); font-size: 0.75rem; letter-spacing: 0.08em; text-transform: uppercase; color: var(--muted); }
+.contact code { font-family: var(--font-mono); font-size: 0.95rem; user-select: all; }
+.copy {
+  font-family: var(--font-display);
+  font-size: 0.82rem;
+  font-weight: 600;
+  color: var(--accent);
+  background: var(--accent-soft);
+  border: 1px solid transparent;
+  border-radius: 999px;
+  padding: 0.2rem 0.75rem;
+  cursor: pointer;
+}
+.copy:hover { border-color: var(--accent); }
+
+/* Warming-level strip: the climate scenarios used in the research */
+.strip { margin: 0.6rem 0 0; display: grid; gap: 0.5rem; max-width: 40rem; }
+.cells { display: grid; grid-template-columns: repeat(8, minmax(0, 1fr)); gap: 3px; }
+.cell { display: grid; gap: 0.3rem; }
+.swatch { height: 0.7rem; border-radius: 2px; }
+.cell span { font-family: var(--font-mono); font-size: 0.72rem; color: var(--muted); font-variant-numeric: tabular-nums; text-align: center; }
+.strip figcaption { font-size: 0.88rem; color: var(--muted); }
+
+/* In-page navigation */
+.toc { border-top: 1px solid var(--rule); padding-block: 0.9rem; }
+.toc ul { list-style: none; margin: 0; padding: 0; display: flex; flex-wrap: wrap; gap: 0.35rem 1.25rem; font-family: var(--font-display); font-size: 0.92rem; font-weight: 500; }
+.toc a { color: var(--muted); text-decoration: none; }
+.toc a:hover { color: var(--accent); text-decoration: underline; }
+
+/* Sections */
+.sec {
+  display: grid;
+  grid-template-columns: 10.5rem minmax(0, 1fr);
+  gap: 0.75rem 2.5rem;
+  padding-block: 2.25rem;
+  border-top: 1px solid var(--rule);
+  scroll-margin-top: 1rem;
+}
+.sec h2 {
+  font-size: 0.8rem;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--muted);
+  padding-top: 0.35rem;
+}
+.body { display: grid; gap: 1rem; max-width: 42rem; min-width: 0; }
+.tools { font-size: 0.95rem; color: var(--muted); }
+.tools b { font-family: var(--font-display); font-weight: 600; color: var(--ink); }
+
+/* Research projects */
+.projects { display: grid; gap: 1.75rem; }
+.project { display: grid; gap: 0.45rem; }
+.project h3 { font-size: 1.18rem; font-weight: 600; line-height: 1.3; }
+.status {
+  justify-self: start;
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  letter-spacing: 0.04em;
+  padding: 0.12rem 0.55rem;
+  border-radius: 999px;
+  border: 1px solid currentColor;
+}
+.status.done { color: var(--done); background: var(--done-soft); border-color: transparent; }
+.status.now { color: var(--accent); background: var(--accent-soft); border-color: transparent; }
+.status.next { color: var(--muted); }
+
+/* Dated entries: publications, presentations, education, teaching */
+.entries { list-style: none; margin: 0; padding: 0; display: grid; gap: 1.25rem; }
+.entries li { display: grid; grid-template-columns: 6.5rem minmax(0, 1fr); gap: 0.25rem 1.25rem; }
+.when { font-family: var(--font-mono); font-size: 0.82rem; color: var(--muted); padding-top: 0.2rem; font-variant-numeric: tabular-nums; }
+.what { display: grid; gap: 0.25rem; min-width: 0; }
+.what .t { font-family: var(--font-display); font-weight: 600; font-size: 1.02rem; line-height: 1.35; }
+.what .d { color: var(--muted); font-size: 0.97rem; }
+.cite { overflow-wrap: anywhere; }
+.cite .me { font-weight: 600; color: var(--ink); }
+.cite .pt { font-weight: 600; }
+.plain { list-style: none; margin: 0; padding: 0; display: grid; gap: 0.6rem; }
+.note { font-family: var(--font-mono); font-size: 0.78rem; color: var(--done); }
+
+footer { border-top: 1px solid var(--rule); padding-top: 1.25rem; font-size: 0.85rem; color: var(--muted); font-family: var(--font-mono); }
+
+@media (max-width: 760px) {
+  .sec { grid-template-columns: minmax(0, 1fr); gap: 0.9rem; padding-block: 1.75rem; }
+  .sec h2 { padding-top: 0; }
+}
+@media (max-width: 480px) {
+  .entries li { grid-template-columns: minmax(0, 1fr); }
+  .when { padding-top: 0; }
+}
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+}
+html { scroll-behavior: smooth; }
+body { margin: 0; }
+img { max-width: 100%; }
+</style>
+</head>
+<body>
+
+<div class="page">
+  <header class="masthead">
+    <p class="eyebrow">PhD Candidate · Western University</p>
+    <h1>Tesfatsyon S. Ochono</h1>
+    <p class="lede">I combine physics-based building simulation with machine learning to design buildings that stay energy-efficient, comfortable and low-carbon as the climate warms.</p>
+    <p class="affil">Department of Civil and Environmental Engineering (Smart Cities), Western University, London, Ontario, Canada</p>
+    <ul class="links">
+      <li><a href="https://scholar.google.com/citations?user=_5zdmiMAAAAJ&amp;hl=en">Google Scholar</a></li>
+      <li><a href="https://orcid.org/0009-0008-3648-1674">ORCID</a></li>
+      <li><a href="https://www.researchgate.net/profile/Tesfatsyon-Ochono/research">ResearchGate</a></li>
+      <li><a href="https://www.linkedin.com/in/tesfatsyon-s-ochono-a0023b118/">LinkedIn</a></li>
+    </ul>
+    <p class="contact"><span class="label">Email</span> <code id="email">tochono@uwo.ca</code> <button class="copy" id="copy-email" type="button">Copy</button></p>
+    <figure class="strip" aria-label="Warming levels used in my research">
+      <div class="cells">
+        <div class="cell"><div class="swatch" style="background:#3f6fa6"></div><span>Hist.</span></div>
+        <div class="cell"><div class="swatch" style="background:#7097c3"></div><span>+0.5</span></div>
+        <div class="cell"><div class="swatch" style="background:#a8c0da"></div><span>+1.0</span></div>
+        <div class="cell"><div class="swatch" style="background:#e3d6c3"></div><span>+1.5</span></div>
+        <div class="cell"><div class="swatch" style="background:#eeb38b"></div><span>+2.0</span></div>
+        <div class="cell"><div class="swatch" style="background:#df865b"></div><span>+2.5</span></div>
+        <div class="cell"><div class="swatch" style="background:#c65a3b"></div><span>+3.0</span></div>
+        <div class="cell"><div class="swatch" style="background:#a2381f"></div><span>+3.5</span></div>
+      </div>
+      <figcaption>Warming levels in my research: NRC future weather data for London, Ontario, from the 1991–2021 baseline to +3.5&nbsp;°C of global warming.</figcaption>
+    </figure>
+  </header>
+
+  <nav class="toc" aria-label="Sections">
+    <ul>
+      <li><a href="#about">About</a></li>
+      <li><a href="#research">Research</a></li>
+      <li><a href="#publications">Publications</a></li>
+      <li><a href="#presentations">Presentations</a></li>
+      <li><a href="#education">Education</a></li>
+      <li><a href="#teaching">Teaching</a></li>
+      <li><a href="#awards">Awards</a></li>
+    </ul>
+  </nav>
+
+  <main>
+    <section class="sec" id="about">
+      <h2>About</h2>
+      <div class="body">
+        <p>I am a PhD candidate in Civil and Environmental Engineering at Western University, supervised by Prof. Girma Bitsuamlak and Prof. Katarina Grolinger. My background is in mechanical and thermal engineering, with an MSc from Warsaw University of Technology.</p>
+        <p>My research covers building energy modelling, climate-adaptive design optimization, and machine-learning surrogate models interpreted with explainable AI. I am extending this work to energy-efficient cooling for data centres.</p>
+        <p class="tools"><b>Tools:</b> Python (machine learning), C/C++, MATLAB, EnergyPlus, DesignBuilder, IES VE, Revit, AutoCAD, SketchUp</p>
+      </div>
+    </section>
+
+    <section class="sec" id="research">
+      <h2>Research</h2>
+      <div class="body projects">
+        <article class="project">
+          <h3>Climate-adaptive robust design optimization</h3>
+          <span class="status done">Completed · manuscript submitted</span>
+          <p>Physics-based design optimization of a four-storey mass timber office in London, Ontario, using EnergyPlus simulation. Designs are optimized for energy use within thermal comfort and embodied carbon limits, then tested across typical and extreme weather years for the historical climate and for +1, +2 and +3&nbsp;°C of warming.</p>
+        </article>
+        <article class="project">
+          <h3>Climate-guided surrogate models with explainable AI</h3>
+          <span class="status now">In progress</span>
+          <p>Machine-learning surrogate models take a building design and a physical description of the climate as inputs and predict heating, cooling and thermal discomfort. They are tested on extreme weather years they never saw in training, and explainable AI shows which design variables drive performance as the climate warms.</p>
+        </article>
+        <article class="project">
+          <h3>AI for energy-efficient data centre cooling</h3>
+          <span class="status next">Planned</span>
+          <p>Cooling design optimization for a hybrid air- and liquid-cooled data centre under current and future climates, using machine-learning surrogate models.</p>
+        </article>
+      </div>
+    </section>
+
+    <section class="sec" id="publications">
+      <h2>Publications</h2>
+      <div class="body">
+        <ul class="entries">
+          <li>
+            <span class="when">Submitted</span>
+            <p class="what cite"><span class="me">Ochono, T.S.</span>, Awol, A., Grolinger, K., Bitsuamlak, G.T. <span class="pt">Integrated Optimization of Energy, Comfort, and Carbon for Sustainable Buildings under Climate Change: A Robust Design Framework.</span> <i>Energy and Buildings</i> (submitted).</p>
+          </li>
+          <li>
+            <span class="when">2025</span>
+            <p class="what cite">Hunde, J.M., <span class="me">Ochono, T.S.</span>, Senevirathne, D., Eneyew, D.D., Bitsuamlak, G.T., Capretz, M.A.M., Grolinger, K. <span class="pt">Data-driven and physics-based modeling approaches and their integration in building digital twins: A systematic review.</span> <i>Journal of Building Engineering</i>, 114, 114214. <a href="https://doi.org/10.1016/j.jobe.2025.114214">doi:10.1016/j.jobe.2025.114214</a></p>
+          </li>
+          <li>
+            <span class="when">2024</span>
+            <p class="what cite">Hunde, J.M., Manmatharasan, P., Senevirathne, D., <span class="me">Ochono, T.S.</span>, Eneyew, D.D., Bitsuamlak, G.T., Capretz, M.A.M., Grolinger, K. <span class="pt">Predicting Building Energy Demand Using Federated Learning with Attribute-Based Clustering.</span> In: <i>Multiphysics and Multiscale Building Physics: Proceedings of the 9th International Building Physics Conference (IBPC 2024)</i>, Lecture Notes in Civil Engineering, pp. 50–56. Springer Nature Singapore. <a href="https://doi.org/10.1007/978-981-97-8309-0_7">doi:10.1007/978-981-97-8309-0_7</a></p>
+          </li>
+        </ul>
+      </div>
+    </section>
+
+    <section class="sec" id="presentations">
+      <h2>Presentations</h2>
+      <div class="body">
+        <ul class="entries">
+          <li>
+            <span class="when">2026</span>
+            <div class="what">
+              <p class="t">Energy Optimization Approach for Mass Timber Office Building Design under Climate Change</p>
+              <p class="d">eSIM 2026: Advancing Sustainability and Climate Resilience, Université de Sherbrooke, Longueuil, QC, Canada</p>
+            </div>
+          </li>
+          <li>
+            <span class="when">2024</span>
+            <div class="what">
+              <p class="t">Predicting Building Energy Demand Using Federated Learning with Attribute-Based Clustering</p>
+              <p class="d">IBPC 2024: International Building Physics Conference, Toronto Metropolitan University, Toronto, ON, Canada</p>
+            </div>
+          </li>
+          <li>
+            <span class="when">2023</span>
+            <div class="what">
+              <p class="t">Application of the AP1000 Nuclear Power Unit to Supply Heat to the District Heating System</p>
+              <p class="d">XV Youth in Power Engineering Conference, Wrocław University of Science and Technology, Wrocław, Poland</p>
+              <p class="note">3rd place, best presentation</p>
+            </div>
+          </li>
+        </ul>
+      </div>
+    </section>
+
+    <section class="sec" id="education">
+      <h2>Education</h2>
+      <div class="body">
+        <ul class="entries">
+          <li>
+            <span class="when">2023–now</span>
+            <div class="what">
+              <p class="t">PhD, Civil and Environmental Engineering (Smart Cities)</p>
+              <p class="d">Western University, London, ON, Canada. Thesis in progress: Integrated Optimization of Energy, Comfort, and Carbon for Sustainable Buildings Using Physics-Based Simulation, Machine Learning, and Digital Twins. Supervisors: Prof. Girma Bitsuamlak and Prof. Katarina Grolinger.</p>
+            </div>
+          </li>
+          <li>
+            <span class="when">2020–2022</span>
+            <div class="what">
+              <p class="t">MSc, Thermal Engineering</p>
+              <p class="d">Warsaw University of Technology, Poland. Thesis: Extracting Heat from Nuclear Power Plants for District Heating: A Case Study of the AP1000. Supervisor: Prof. Rafał Laskowski.</p>
+            </div>
+          </li>
+          <li>
+            <span class="when">2012–2017</span>
+            <div class="what">
+              <p class="t">BSc, Mechanical Engineering</p>
+              <p class="d">Arba Minch University, Ethiopia</p>
+            </div>
+          </li>
+        </ul>
+      </div>
+    </section>
+
+    <section class="sec" id="teaching">
+      <h2>Teaching</h2>
+      <div class="body">
+        <ul class="entries">
+          <li>
+            <span class="when">2024–now</span>
+            <div class="what">
+              <p class="t">Graduate Teaching Assistant, Western University</p>
+              <p class="d">Computational Tools for Civil Engineers (CEE 2219B); Heating, Ventilating and Air Conditioning (MME 3334A); Building Sustainability (CEE 9532); Climate Hazards for Engineers (CEE 9528); Foundations of Engineering Practice (ES 1050)</p>
+            </div>
+          </li>
+          <li>
+            <span class="when">2018–2019</span>
+            <div class="what">
+              <p class="t">Assistant Lecturer, Wolaita Sodo University</p>
+              <p class="d">Department of Mechanical Engineering, Ethiopia. Assisted in Engineering Thermodynamics and Heat Transfer.</p>
+            </div>
+          </li>
+        </ul>
+      </div>
+    </section>
+
+    <section class="sec" id="awards">
+      <h2>Awards &amp; service</h2>
+      <div class="body">
+        <ul class="plain">
+          <li>Ignacy Łukasiewicz Scholarship, Poland</li>
+          <li>SPINAKER Scholarship, Poland</li>
+          <li>3rd Place, Best Presentation, XV Youth in Power Engineering Conference (2023)</li>
+          <li>Volunteer, 8th International Symposium on Computational Wind Engineering (CWE 2026), Western University</li>
+          <li>Member, International Building Performance Simulation Association (IBPSA)</li>
+          <li>Member, American Society of Heating, Refrigerating and Air-Conditioning Engineers (ASHRAE)</li>
+        </ul>
+      </div>
+    </section>
+  </main>
+
+  <footer>Last updated October 2026</footer>
+</div>
+
+<script>
+(function () {
+  var btn = document.getElementById('copy-email');
+  var email = document.getElementById('email');
+  if (!btn || !email) return;
+  btn.addEventListener('click', function () {
+    var text = email.textContent.trim();
+    var done = function (label) {
+      btn.textContent = label;
+      setTimeout(function () { btn.textContent = 'Copy'; }, 1800);
+    };
+    var selectIt = function () {
+      var range = document.createRange();
+      range.selectNodeContents(email);
+      var sel = window.getSelection();
+      sel.removeAllRanges();
+      sel.addRange(range);
+      done('Selected');
+    };
+    try {
+      navigator.clipboard.writeText(text).then(function () { done('Copied'); }, selectIt);
+    } catch (e) {
+      selectIt();
+    }
+  });
+})();
+</script>
+</body>
+</html>
