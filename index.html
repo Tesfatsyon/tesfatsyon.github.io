@@ -3,382 +3,697 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<meta name="description" content="Tesfatsyon Simon Ochono, PhD candidate in Civil and Environmental Engineering at Western University: building energy, climate-adaptive design optimization and machine learning.">
+<meta name="description" content="Tesfatsyon Simon Ochono is a PhD candidate in Civil and Environmental Engineering at Western University, working on building energy, climate-adaptive design and machine learning.">
+<meta property="og:type" content="profile">
+<meta property="og:title" content="Tesfatsyon Simon Ochono">
+<meta property="og:description" content="PhD Candidate, Civil and Environmental Engineering, Western University">
 <title>Tesfatsyon Simon Ochono</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wght@500;600;700&family=IBM+Plex+Mono:wght@400;500&family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,600;1,8..60,400&display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:wght@400;500;600&family=STIX+Two+Text:ital,wght@0,400;0,600;0,700;1,400&display=swap">
 <style>
-/* Layout: academic CV page; section labels sit in a narrow left rail, content on the right; stacks to one column on phones */
+/* Layout: journal-style researcher homepage on a 64rem page. Name spans the top; below it the bio sits beside a
+   profile card (photo, profiles, contact) so the full width is used; sections then run the full width, with
+   publications set like a reference list. One signature detail: a thin infrared-thermography line on the top bar. */
 :root {
-  --accent: #1d5c86;
-  --accent-soft: #e2ecf4;
-  --done: #2e6b4c;
-  --done-soft: #e3f0e8;
-  --font-display: "Archivo", "Helvetica Neue", Arial, sans-serif;
-  --font-body: "Source Serif 4", Georgia, "Times New Roman", serif;
-  --font-mono: "IBM Plex Mono", ui-monospace, Menlo, Consolas, monospace;
+  --paper: #fbfcfd;
+  --paper-glass: rgba(251, 252, 253, 0.9);
+  --card: #ffffff;
+  --ink: #141a24;
+  --ink-2: #4a5365;
+  --ink-3: #6b7486;
+  --line: #e1e5ec;
+  --tint: #edf1f7;
+  --accent: #1d4f9a;
+  --accent-2: #12386f;
+  --thermal: linear-gradient(90deg, #170b3b 0%, #4a0f6b 16%, #8f1c6c 32%, #cf3a3a 50%, #ec7a1f 68%, #f7c13e 84%, #fbf0b4 100%);
+  --serif: "STIX Two Text", "STIX Two", "Times New Roman", Georgia, serif;
+  --sans: "IBM Plex Sans", "Helvetica Neue", Arial, sans-serif;
+  --mono: "IBM Plex Mono", ui-monospace, Menlo, Consolas, monospace;
 }
 @media (prefers-color-scheme: dark) {
   :root:not([data-theme="light"]) {
-    --bg: #0f151a;
-    --surface: #161e25;
-    --ink: #e3e9ee;
-    --muted: #9ba8b3;
-    --rule: #29343e;
-    --accent: #84b9de;
-    --accent-soft: #1a2b38;
-    --done: #8ccaa8;
-    --done-soft: #17291f;
+    --paper: #0e1117;
+    --paper-glass: rgba(14, 17, 23, 0.88);
+    --card: #141922;
+    --ink: #e7eaf0;
+    --ink-2: #aab2c0;
+    --ink-3: #8d96a6;
+    --line: #262c37;
+    --tint: #18202c;
+    --accent: #8fb5f0;
+    --accent-2: #b9d0f6;
     color-scheme: dark;
   }
 }
 :root[data-theme="dark"] {
-  --bg: #0f151a;
-  --surface: #161e25;
-  --ink: #e3e9ee;
-  --muted: #9ba8b3;
-  --rule: #29343e;
-  --accent: #84b9de;
-  --accent-soft: #1a2b38;
-  --done: #8ccaa8;
-  --done-soft: #17291f;
+  --paper: #0e1117;
+  --paper-glass: rgba(14, 17, 23, 0.88);
+  --card: #141922;
+  --ink: #e7eaf0;
+  --ink-2: #aab2c0;
+  --ink-3: #8d96a6;
+  --line: #262c37;
+  --tint: #18202c;
+  --accent: #8fb5f0;
+  --accent-2: #b9d0f6;
   color-scheme: dark;
 }
 
 * { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+@media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } }
 body {
-  background: var(--bg);
+  margin: 0;
+  background: var(--paper);
   color: var(--ink);
-  font-family: var(--font-body);
+  font-family: var(--serif);
   font-size: 1.0625rem;
-  line-height: 1.6;
+  line-height: 1.65;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
 }
-.page {
-  max-width: 66rem;
-  margin-inline: auto;
-  padding-inline: clamp(16px, 4vw, 48px);
-  padding-block: clamp(2rem, 6vw, 4rem) 3rem;
-}
-a { color: var(--accent); text-underline-offset: 0.18em; text-decoration-thickness: 1px; }
-a:hover { text-decoration-thickness: 2px; }
-a:focus-visible, button:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; border-radius: 3px; }
+img { max-width: 100%; }
+[hidden] { display: none !important; }
+a { color: var(--accent); text-decoration: none; }
+a:hover { color: var(--accent-2); text-decoration: underline; text-underline-offset: 0.18em; text-decoration-thickness: 1px; }
+:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; border-radius: 3px; }
 p { margin: 0; }
-h1, h2, h3 { font-family: var(--font-display); text-wrap: balance; margin: 0; }
+h1, h2, h3 { margin: 0; }
+h1, h2 { text-wrap: balance; }
+h3 { text-wrap: pretty; }
+ul { margin: 0; padding: 0; list-style: none; }
 
-/* Masthead */
-.masthead { display: grid; gap: 1.1rem; padding-bottom: 2.25rem; }
-.eyebrow {
-  font-family: var(--font-mono);
-  font-size: 0.78rem;
-  letter-spacing: 0.08em;
-  text-transform: uppercase;
-  color: var(--muted);
+/* Top bar */
+.topbar {
+  position: sticky;
+  top: env(safe-area-inset-top, 0px);
+  z-index: 10;
+  background: var(--paper-glass);
+  -webkit-backdrop-filter: saturate(140%) blur(8px);
+  backdrop-filter: saturate(140%) blur(8px);
+  border-bottom: 1px solid var(--line);
 }
-h1 {
-  font-size: clamp(2.3rem, 6vw, 3.6rem);
-  font-weight: 700;
-  line-height: 1.04;
-  letter-spacing: -0.015em;
+.topbar::before { content: ""; display: block; height: 3px; background: var(--thermal); }
+.bar {
+  max-width: 64rem;
+  margin-inline: auto;
+  padding-inline: clamp(16px, 4vw, 40px);
+  padding-block: 0.65rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.5rem 1.5rem;
 }
-.lede { max-width: 40rem; font-size: 1.15rem; color: var(--ink); }
-.affil { color: var(--muted); max-width: 40rem; }
-.links { list-style: none; padding: 0; margin: 0; display: flex; flex-wrap: wrap; gap: 0.5rem 1.25rem; font-family: var(--font-display); font-weight: 500; font-size: 0.98rem; }
-.contact { display: flex; flex-wrap: wrap; align-items: center; gap: 0.5rem 0.75rem; font-size: 0.98rem; }
-.contact .label { font-family: var(--font-mono); font-size: 0.75rem; letter-spacing: 0.08em; text-transform: uppercase; color: var(--muted); }
-.contact code { font-family: var(--font-mono); font-size: 0.95rem; user-select: all; }
+.brand { font-family: var(--serif); font-weight: 600; font-size: 1.02rem; color: var(--ink); white-space: nowrap; }
+.brand:hover { color: var(--accent); text-decoration: none; }
+.menu { display: flex; gap: 0.25rem 1.15rem; font-family: var(--sans); font-size: 0.88rem; font-weight: 500; overflow-x: auto; scrollbar-width: none; min-width: 0; }
+.menu::-webkit-scrollbar { display: none; }
+.menu a { color: var(--ink-2); white-space: nowrap; padding-block: 0.15rem; }
+.menu a:hover { color: var(--accent); text-decoration: none; }
+
+.wrap { max-width: 64rem; margin-inline: auto; padding-inline: clamp(16px, 4vw, 40px); }
+
+/* Identity block */
+.hero { display: grid; gap: 1rem; padding-block: clamp(2.5rem, 6vw, 4.25rem) 3rem; }
+.kicker { font-family: var(--sans); font-size: 0.76rem; font-weight: 600; letter-spacing: 0.13em; text-transform: uppercase; color: var(--accent); }
+.name { font-family: var(--serif); font-weight: 400; font-size: clamp(2rem, 4.4vw, 2.75rem); line-height: 1.1; letter-spacing: -0.005em; }
+.name b { font-weight: 700; }
+.role { display: flex; flex-wrap: wrap; gap: 0.15rem 0.55rem; font-family: var(--sans); font-size: 0.98rem; line-height: 1.55; color: var(--ink-2); }
+.role span { white-space: nowrap; }
+.role strong { color: var(--ink); font-weight: 600; }
+.role .sep { color: var(--ink-3); }
+.hero-body { display: grid; grid-template-columns: minmax(0, 1fr) 17rem; gap: 2rem 2.5rem; align-items: start; margin-top: 1rem; }
+.bio { display: grid; grid-template-columns: minmax(0, 1fr); gap: 1rem; font-size: 1.08rem; line-height: 1.72; min-width: 0; }
+/* Straight right edges on running text, as in a printed paper; headings stay left-aligned */
+.bio p { text-align: justify; -webkit-hyphens: auto; hyphens: auto; }
+/* Bio lines set by the Knuth-Plass script at the end of the page: every line but the last is justified */
+.bio p.kp { -webkit-hyphens: manual; hyphens: manual; }
+.kp-line { display: block; text-align: justify; text-align-last: justify; }
+.kp-last { text-align-last: auto; }
+.kp-hy::after { content: "-"; }
+/* On phones the column is too narrow for even justified spacing, so running text is left-aligned there */
+@media (max-width: 600px) {
+  .bio p, .entry-detail, .entry-meta, .authors, .where { text-align: left; }
+}
+.entry-detail, .entry-meta, .authors, .where { text-align: justify; }
+
+/* Profile card beside the bio */
+.card { display: grid; gap: 0.7rem; background: var(--card); border: 1px solid var(--line); border-radius: 10px; padding: 1.1rem 1.15rem 1.15rem; }
+.portrait { margin: 0 0 0.4rem; }
+.portrait img { display: block; width: 100%; aspect-ratio: 4 / 5; object-fit: cover; border-radius: 6px; background: var(--tint); }
+.card-label { font-family: var(--sans); font-size: 0.7rem; font-weight: 600; letter-spacing: 0.13em; text-transform: uppercase; color: var(--ink-3); }
+.card-label + .links { margin-top: -0.2rem; }
+.links li + li { border-top: 1px solid var(--line); }
+.links a { display: flex; align-items: center; gap: 0.6rem; padding-block: 0.55rem; font-family: var(--sans); font-size: 0.9rem; font-weight: 500; color: var(--ink); }
+.links a:hover { color: var(--accent); text-decoration: none; }
+.links svg { width: 1.05rem; height: 1.05rem; flex: none; }
+.links .ext { margin-left: auto; font-size: 0.85rem; color: var(--ink-3); }
+.links a:hover .ext { color: var(--accent); }
+.email { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 0.5rem; border-top: 1px solid var(--line); padding-top: 0.8rem; margin-top: 0.15rem; }
+.email code { font-family: var(--mono); font-size: 0.86rem; color: var(--ink); user-select: all; overflow-wrap: anywhere; }
 .copy {
-  font-family: var(--font-display);
-  font-size: 0.82rem;
-  font-weight: 600;
+  font: 500 0.76rem/1 var(--sans);
   color: var(--accent);
-  background: var(--accent-soft);
+  background: var(--tint);
   border: 1px solid transparent;
   border-radius: 999px;
-  padding: 0.2rem 0.75rem;
+  padding: 0.36rem 0.75rem;
   cursor: pointer;
 }
 .copy:hover { border-color: var(--accent); }
 
-/* Warming-level strip: the climate scenarios used in the research */
-.strip { margin: 0.6rem 0 0; display: grid; gap: 0.5rem; max-width: 40rem; }
-.cells { display: grid; grid-template-columns: repeat(8, minmax(0, 1fr)); gap: 3px; }
-.cell { display: grid; gap: 0.3rem; }
-.swatch { height: 0.7rem; border-radius: 2px; }
-.cell span { font-family: var(--font-mono); font-size: 0.72rem; color: var(--muted); font-variant-numeric: tabular-nums; text-align: center; }
-.strip figcaption { font-size: 0.88rem; color: var(--muted); }
-
-/* In-page navigation */
-.toc { border-top: 1px solid var(--rule); padding-block: 0.9rem; }
-.toc ul { list-style: none; margin: 0; padding: 0; display: flex; flex-wrap: wrap; gap: 0.35rem 1.25rem; font-family: var(--font-display); font-size: 0.92rem; font-weight: 500; }
-.toc a { color: var(--muted); text-decoration: none; }
-.toc a:hover { color: var(--accent); text-decoration: underline; }
-
 /* Sections */
-.sec {
-  display: grid;
-  grid-template-columns: 10.5rem minmax(0, 1fr);
-  gap: 0.75rem 2.5rem;
-  padding-block: 2.25rem;
-  border-top: 1px solid var(--rule);
-  scroll-margin-top: 1rem;
-}
-.sec h2 {
-  font-size: 0.8rem;
+.section { border-top: 1px solid var(--line); padding-block: 2.75rem; display: grid; gap: 1.6rem; scroll-margin-top: 4.5rem; }
+.section h2 { font-family: var(--serif); font-weight: 600; font-size: 1.6rem; line-height: 1.2; letter-spacing: -0.005em; }
+.sub { font-family: var(--sans); font-size: 0.76rem; font-weight: 600; letter-spacing: 0.12em; text-transform: uppercase; color: var(--ink-3); margin-bottom: 0.6rem; }
+
+/* Research themes */
+.themes { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 1rem; }
+.theme { display: grid; gap: 0.85rem; align-content: start; background: var(--card); border: 1px solid var(--line); border-radius: 10px; padding: 1.25rem 1.2rem 1.35rem; }
+.theme svg { width: 1.9rem; height: 1.9rem; color: var(--accent); }
+.theme h3 { font-family: var(--serif); font-weight: 600; font-size: 1.14rem; line-height: 1.35; }
+
+/* Publications */
+.pubs { display: grid; gap: 1.75rem; }
+.pub { display: grid; grid-template-columns: 4.6rem minmax(0, 1fr); gap: 0.35rem 1.25rem; }
+.venue {
+  align-self: start;
+  margin-top: 0.22rem;
+  font-family: var(--sans);
+  font-size: 0.7rem;
   font-weight: 600;
-  letter-spacing: 0.1em;
+  letter-spacing: 0.07em;
   text-transform: uppercase;
-  color: var(--muted);
-  padding-top: 0.35rem;
+  text-align: center;
+  color: var(--accent);
+  background: var(--tint);
+  border-radius: 4px;
+  padding: 0.3rem 0.35rem;
 }
-.body { display: grid; gap: 1rem; max-width: 42rem; min-width: 0; }
-.tools { font-size: 0.95rem; color: var(--muted); }
-.tools b { font-family: var(--font-display); font-weight: 600; color: var(--ink); }
+.pub-body { display: grid; gap: 0.3rem; min-width: 0; }
+.pub-title { font-family: var(--serif); font-weight: 600; font-size: 1.1rem; line-height: 1.4; }
+.pub-title a { color: var(--ink); }
+.pub-title a:hover { color: var(--accent); }
+.authors { font-family: var(--sans); font-size: 0.88rem; line-height: 1.55; color: var(--ink-2); }
+.authors .me { color: var(--ink); font-weight: 600; }
+.where { font-size: 0.98rem; color: var(--ink-2); }
+.tags { display: flex; flex-wrap: wrap; gap: 0.4rem; padding-top: 0.3rem; }
+.btn { font: 500 0.72rem/1 var(--sans); letter-spacing: 0.05em; text-transform: uppercase; color: var(--ink-2); border: 1px solid var(--line); border-radius: 4px; padding: 0.34rem 0.55rem; }
+.btn:hover { color: var(--accent); border-color: var(--accent); text-decoration: none; }
 
-/* Research projects */
-.projects { display: grid; gap: 1.75rem; }
-.project { display: grid; gap: 0.45rem; }
-.project h3 { font-size: 1.18rem; font-weight: 600; line-height: 1.3; }
-.status {
-  justify-self: start;
-  font-family: var(--font-mono);
-  font-size: 0.72rem;
-  letter-spacing: 0.04em;
-  padding: 0.12rem 0.55rem;
-  border-radius: 999px;
-  border: 1px solid currentColor;
+/* Dated entries: education, experience, talks */
+.entries { display: grid; gap: 1.6rem; }
+.entry { display: grid; grid-template-columns: 6.6rem minmax(0, 1fr); gap: 0.3rem 1.25rem; }
+.date { font-family: var(--mono); font-size: 0.8rem; color: var(--ink-3); padding-top: 0.28rem; font-variant-numeric: tabular-nums; }
+.entry-body { display: grid; gap: 0.28rem; min-width: 0; }
+.entry-title { font-family: var(--serif); font-weight: 600; font-size: 1.08rem; line-height: 1.4; }
+.entry-meta { font-family: var(--sans); font-size: 0.88rem; line-height: 1.55; color: var(--ink-2); }
+.entry-detail { font-size: 0.98rem; color: var(--ink-2); }
+.entry-detail i { color: var(--ink); }
+.award { justify-self: start; font: 600 0.72rem/1 var(--sans); letter-spacing: 0.05em; text-transform: uppercase; color: var(--accent); background: var(--tint); border-radius: 4px; padding: 0.34rem 0.55rem; margin-top: 0.2rem; }
+
+/* Honors and service */
+.cols { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 1.5rem 3rem; }
+.list li { display: flex; justify-content: space-between; align-items: baseline; gap: 1rem; padding-block: 0.55rem; border-bottom: 1px solid var(--line); line-height: 1.45; }
+.list li:last-child { border-bottom: 0; }
+.list .yr { font-family: var(--mono); font-size: 0.78rem; color: var(--ink-3); white-space: nowrap; }
+
+.footer { border-top: 1px solid var(--line); padding-block: 1.75rem 2.75rem; display: flex; flex-wrap: wrap; justify-content: space-between; gap: 0.5rem 1.5rem; font-family: var(--sans); font-size: 0.8rem; color: var(--ink-3); }
+
+@media (max-width: 860px) {
+  .hero-body { grid-template-columns: minmax(0, 1fr); }
+  .card { max-width: 30rem; }
+  .portrait img { width: 9rem; }
+  .themes { grid-template-columns: minmax(0, 1fr); }
+  .cols { grid-template-columns: minmax(0, 1fr); }
 }
-.status.done { color: var(--done); background: var(--done-soft); border-color: transparent; }
-.status.now { color: var(--accent); background: var(--accent-soft); border-color: transparent; }
-.status.next { color: var(--muted); }
-
-/* Dated entries: publications, presentations, education, teaching */
-.entries { list-style: none; margin: 0; padding: 0; display: grid; gap: 1.25rem; }
-.entries li { display: grid; grid-template-columns: 6.5rem minmax(0, 1fr); gap: 0.25rem 1.25rem; }
-.when { font-family: var(--font-mono); font-size: 0.82rem; color: var(--muted); padding-top: 0.2rem; font-variant-numeric: tabular-nums; }
-.what { display: grid; gap: 0.25rem; min-width: 0; }
-.what .t { font-family: var(--font-display); font-weight: 600; font-size: 1.02rem; line-height: 1.35; }
-.what .d { color: var(--muted); font-size: 0.97rem; }
-.cite { overflow-wrap: anywhere; }
-.cite .me { font-weight: 600; color: var(--ink); }
-.cite .pt { font-weight: 600; }
-.plain { list-style: none; margin: 0; padding: 0; display: grid; gap: 0.6rem; }
-.note { font-family: var(--font-mono); font-size: 0.78rem; color: var(--done); }
-.topics { gap: 0.75rem; }
-.topics li { font-family: var(--font-display); font-weight: 600; font-size: 1.12rem; line-height: 1.35; }
-
-footer { border-top: 1px solid var(--rule); padding-top: 1.25rem; font-size: 0.85rem; color: var(--muted); font-family: var(--font-mono); }
-
-@media (max-width: 760px) {
-  .sec { grid-template-columns: minmax(0, 1fr); gap: 0.9rem; padding-block: 1.75rem; }
-  .sec h2 { padding-top: 0; }
+@media (max-width: 640px) {
+  .topbar { position: static; }
+  .bar { flex-direction: column; align-items: flex-start; }
+  .menu { width: 100%; }
 }
 @media (max-width: 480px) {
-  .entries li { grid-template-columns: minmax(0, 1fr); }
-  .when { padding-top: 0; }
+  .pub, .entry { grid-template-columns: minmax(0, 1fr); }
+  .venue { justify-self: start; }
+  .date { padding-top: 0; }
 }
-@media (prefers-reduced-motion: reduce) {
-  html { scroll-behavior: auto; }
-}
-html { scroll-behavior: smooth; }
-body { margin: 0; }
-img { max-width: 100%; }
 </style>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Person",
+  "name": "Tesfatsyon Simon Ochono",
+  "jobTitle": "PhD Candidate",
+  "affiliation": { "@type": "CollegeOrUniversity", "name": "Western University" },
+  "email": "mailto:tochono@uwo.ca",
+  "sameAs": [
+    "https://scholar.google.com/citations?user=_5zdmiMAAAAJ",
+    "https://orcid.org/0009-0008-3648-1674",
+    "https://www.researchgate.net/profile/Tesfatsyon-Ochono",
+    "https://www.linkedin.com/in/tesfatsyon-s-ochono-a0023b118/"
+  ]
+}
+</script>
 </head>
 <body>
+<header class="topbar">
+  <div class="bar">
+    <a class="brand" href="#about">Tesfatsyon Simon Ochono</a>
+    <nav class="menu" aria-label="Sections">
+      <a href="#about">About</a>
+      <a href="#research">Research</a>
+      <a href="#education">Education</a>
+      <a href="#experience">Experience</a>
+      <a href="#publications">Publications</a>
+      <a href="#talks">Talks</a>
+      <a href="#honors">Honors</a>
+    </nav>
+  </div>
+</header>
 
-<div class="page">
-  <header class="masthead">
-    <p class="eyebrow">PhD Candidate · Western University</p>
-    <h1>Tesfatsyon Simon Ochono</h1>
-    <p class="lede">I combine physics-based building simulation with machine learning to design buildings that stay energy-efficient, comfortable and low-carbon as the climate warms.</p>
-    <p class="affil">Department of Civil and Environmental Engineering (Smart Cities), Western University, London, Ontario, Canada</p>
-    <ul class="links">
-      <li><a href="https://scholar.google.com/citations?user=_5zdmiMAAAAJ&amp;hl=en">Google Scholar</a></li>
-      <li><a href="https://orcid.org/0009-0008-3648-1674">ORCID</a></li>
-      <li><a href="https://www.researchgate.net/profile/Tesfatsyon-Ochono/research">ResearchGate</a></li>
-      <li><a href="https://www.linkedin.com/in/tesfatsyon-s-ochono-a0023b118/">LinkedIn</a></li>
-    </ul>
-    <p class="contact"><span class="label">Email</span> <code id="email">tochono@uwo.ca</code> <button class="copy" id="copy-email" type="button">Copy</button></p>
-  </header>
-
-  <nav class="toc" aria-label="Sections">
-    <ul>
-      <li><a href="#about">About</a></li>
-      <li><a href="#research">Research</a></li>
-      <li><a href="#publications">Publications</a></li>
-      <li><a href="#presentations">Presentations</a></li>
-      <li><a href="#education">Education</a></li>
-      <li><a href="#teaching">Teaching</a></li>
-      <li><a href="#awards">Awards</a></li>
-    </ul>
-  </nav>
-
-  <main>
-    <section class="sec" id="about">
-      <h2>About</h2>
-      <div class="body">
-        <p>I am a PhD candidate in Civil and Environmental Engineering at Western University, supervised by Prof. Girma Bitsuamlak and Prof. Katarina Grolinger. My background is in mechanical and thermal engineering, with an MSc from Warsaw University of Technology.</p>
-        <p>My research covers building energy modelling, climate-adaptive design optimization, and machine-learning surrogate models interpreted with explainable AI. I am extending this work to energy-efficient cooling for data centres.</p>
-        <p class="tools"><b>Tools:</b> Python (machine learning), C/C++, MATLAB, EnergyPlus, DesignBuilder, IES VE, Revit, AutoCAD, SketchUp</p>
+<main class="wrap">
+  <section class="hero" id="about">
+    <p class="kicker">Building Energy · Climate Adaptation · Machine Learning</p>
+    <h1 class="name">Tesfatsyon Simon <b>Ochono</b></h1>
+    <p class="role"><span><strong>PhD Candidate</strong></span><span class="sep" aria-hidden="true">·</span><span>Civil and Environmental Engineering</span><span class="sep" aria-hidden="true">·</span><span>Western University, London, Ontario, Canada</span></p>
+    <div class="hero-body">
+      <div class="bio" lang="en">
+        <p>Tesfatsyon Simon Ochono is a PhD can&shy;di&shy;date in Civil and En&shy;vi&shy;ron&shy;men&shy;tal En&shy;gi&shy;neer&shy;ing (Smart Cities) at West&shy;ern Uni&shy;ver&shy;sity, ad&shy;vised by Prof. Girma Bitsuamlak and Prof. Katarina Grolinger. Tesfatsyon's re&shy;search com&shy;bines phys&shy;ics-based build&shy;ing sim&shy;u&shy;la&shy;tion with ma&shy;chine learn&shy;ing to find de&shy;signs that stay en&shy;ergy-ef&shy;fi&shy;cient, com&shy;fort&shy;able and low-car&shy;bon as the cli&shy;mate&nbsp;changes.</p>
+        <p>Tesfatsyon's re&shy;search also in&shy;volves the cool&shy;ing de&shy;sign of data cen&shy;tres, whose en&shy;ergy de&shy;mand is ris&shy;ing quickly with the growth of AI. Tesfatsyon earned a BSc in Me&shy;chan&shy;i&shy;cal En&shy;gi&shy;neer&shy;ing from Arba Minch Uni&shy;ver&shy;sity and an MSc in Power En&shy;gi&shy;neer&shy;ing (Ther&shy;mal) from Warsaw Uni&shy;ver&shy;sity of Tech&shy;nol&shy;ogy, and now serves as a grad&shy;u&shy;ate teach&shy;ing as&shy;sis&shy;tant at West&shy;ern in courses on HVAC, build&shy;ing sus&shy;tain&shy;abil&shy;ity and com&shy;pu&shy;ta&shy;tional tools for&nbsp;engineers.</p>
       </div>
-    </section>
+      <aside class="card" aria-label="Profiles and contact">
+        <figure class="portrait" id="portrait" hidden>
+          <img id="portrait-img" src="photo.jpg" alt="Portrait of Tesfatsyon Simon Ochono">
+        </figure>
+        <p class="card-label">Profiles</p>
+        <ul class="links">
+          <li><a href="https://scholar.google.com/citations?user=_5zdmiMAAAAJ&amp;hl=en">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M12 3 1 9l11 6 9-4.91V17h2V9L12 3zM5 13.18v4L12 21l7-3.82v-4L12 17l-7-3.82z"/></svg>
+            Google Scholar<span class="ext" aria-hidden="true">↗</span></a></li>
+          <li><a href="https://orcid.org/0009-0008-3648-1674">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="10.5" fill="currentColor"/><text x="12" y="15.7" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="10" font-weight="700" style="fill: var(--card)">iD</text></svg>
+            ORCID<span class="ext" aria-hidden="true">↗</span></a></li>
+          <li><a href="https://www.researchgate.net/profile/Tesfatsyon-Ochono/research">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><rect x="1.5" y="1.5" width="21" height="21" rx="4" fill="currentColor"/><text x="12" y="16" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="10" font-weight="700" style="fill: var(--card)">RG</text></svg>
+            ResearchGate<span class="ext" aria-hidden="true">↗</span></a></li>
+          <li><a href="https://www.linkedin.com/in/tesfatsyon-s-ochono-a0023b118/">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><rect x="1.5" y="1.5" width="21" height="21" rx="4" fill="currentColor"/><text x="12" y="16.6" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="12" font-weight="700" style="fill: var(--card)">in</text></svg>
+            LinkedIn<span class="ext" aria-hidden="true">↗</span></a></li>
+        </ul>
+        <p class="card-label">Contact</p>
+        <p class="email"><code id="email">tochono@uwo.ca</code><button class="copy" id="copy-email" type="button">Copy email</button></p>
+      </aside>
+    </div>
+  </section>
 
-    <section class="sec" id="research">
-      <h2>Research</h2>
-      <div class="body">
-        <ul class="plain topics">
-          <li>Climate-adaptive robust design optimization</li>
-          <li>Climate-guided surrogate models with explainable AI</li>
-          <li>AI for energy-efficient data centre cooling</li>
+  <section class="section" id="research">
+    <h2>Research</h2>
+    <div class="themes">
+      <article class="theme">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3.5" y="5" width="9.5" height="16"/><path d="M6.5 9h3.5M6.5 12.5h3.5M6.5 16h3.5"/><path d="M17.5 14.6V5a1.6 1.6 0 0 1 3.2 0v9.6"/><circle cx="19.1" cy="17.4" r="2.8"/></svg>
+        <h3>Climate-adaptive robust design optimization</h3>
+      </article>
+      <article class="theme">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="5" cy="6" r="2"/><circle cx="5" cy="18" r="2"/><circle cx="12" cy="12" r="2"/><circle cx="19" cy="6" r="2"/><circle cx="19" cy="18" r="2"/><path d="M6.5 7.3l4 3.4M6.5 16.7l4-3.4M13.5 10.7l4-3.4M13.5 13.3l4 3.4"/></svg>
+        <h3>Climate-guided surrogate model for building design</h3>
+      </article>
+      <article class="theme">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="3" width="11" height="18" rx="1.5"/><path d="M6 7.5h5M6 11.5h5M6 15.5h5"/><path d="M17 9c1.3-.8 2.7-.8 4 0M17 12.5c1.3-.8 2.7-.8 4 0M17 16c1.3-.8 2.7-.8 4 0"/></svg>
+        <h3>AI for energy-efficient data centre cooling design</h3>
+      </article>
+    </div>
+  </section>
+
+  <section class="section" id="education">
+    <h2>Education</h2>
+    <div class="entries">
+      <article class="entry">
+        <span class="date">2023 – now</span>
+        <div class="entry-body">
+          <h3 class="entry-title">PhD, Civil and Environmental Engineering (Smart Cities)</h3>
+          <p class="entry-meta">Western University, London, ON, Canada</p>
+          <p class="entry-detail">Thesis (in progress): <i>Integrated Design Optimization for Sustainable Buildings and Data Centres Using Physics-Based Simulation and Machine Learning</i></p>
+          <p class="entry-detail">Advisors: Prof. Girma Bitsuamlak and Prof. Katarina Grolinger</p>
+        </div>
+      </article>
+      <article class="entry">
+        <span class="date">2020 – 2022</span>
+        <div class="entry-body">
+          <h3 class="entry-title">MSc, Power Engineering (Thermal)</h3>
+          <p class="entry-meta">Warsaw University of Technology, Warsaw, Poland</p>
+          <p class="entry-detail">Thesis: <i>Extracting Heat from Nuclear Power Plants for District Heating: A Case Study of the AP1000</i></p>
+          <p class="entry-detail">Advisor: Prof. Rafał Laskowski</p>
+        </div>
+      </article>
+      <article class="entry">
+        <span class="date">2012 – 2017</span>
+        <div class="entry-body">
+          <h3 class="entry-title">BSc, Mechanical Engineering</h3>
+          <p class="entry-meta">Arba Minch University, Arba Minch, Ethiopia</p>
+        </div>
+      </article>
+    </div>
+  </section>
+
+  <section class="section" id="experience">
+    <h2>Experience</h2>
+    <div class="entries">
+      <article class="entry">
+        <span class="date">2024 – now</span>
+        <div class="entry-body">
+          <h3 class="entry-title">Graduate Teaching Assistant</h3>
+          <p class="entry-meta">Western University, Canada</p>
+        </div>
+      </article>
+      <article class="entry">
+        <span class="date">2022 – 2023</span>
+        <div class="entry-body">
+          <h3 class="entry-title">Senior Process Executive (Programmer)</h3>
+          <p class="entry-meta">Cognizant Technology Solutions, Poland</p>
+        </div>
+      </article>
+      <article class="entry">
+        <span class="date">2018 – 2019</span>
+        <div class="entry-body">
+          <h3 class="entry-title">Assistant Lecturer</h3>
+          <p class="entry-meta">Wolaita Sodo University, Ethiopia</p>
+        </div>
+      </article>
+    </div>
+  </section>
+
+  <section class="section" id="publications">
+    <h2>Publications</h2>
+    <div class="pubs">
+      <article class="pub">
+        <span class="venue" title="Journal of Building Engineering">JBE</span>
+        <div class="pub-body">
+          <h3 class="pub-title"><a href="https://doi.org/10.1016/j.jobe.2025.114214">Data-driven and physics-based modeling approaches and their integration in building digital twins: A systematic review</a></h3>
+          <p class="authors">J. M. Hunde, <span class="me">T. S. Ochono</span>, D. Senevirathne, D. D. Eneyew, G. T. Bitsuamlak, M. A. M. Capretz, K. Grolinger</p>
+          <p class="where"><i>Journal of Building Engineering</i>, vol. 114, 114214, 2025</p>
+          <div class="tags"><a class="btn" href="https://doi.org/10.1016/j.jobe.2025.114214">DOI</a></div>
+        </div>
+      </article>
+      <article class="pub">
+        <span class="venue" title="International Building Physics Conference">IBPC</span>
+        <div class="pub-body">
+          <h3 class="pub-title"><a href="https://doi.org/10.1007/978-981-97-8309-0_7">Predicting Building Energy Demand Using Federated Learning with Attribute-Based Clustering</a></h3>
+          <p class="authors">J. M. Hunde, P. Manmatharasan, D. Senevirathne, <span class="me">T. S. Ochono</span>, D. D. Eneyew, G. T. Bitsuamlak, M. A. M. Capretz, K. Grolinger</p>
+          <p class="where"><i>Multiphysics and Multiscale Building Physics: Proceedings of the 9th International Building Physics Conference (IBPC 2024)</i>, Lecture Notes in Civil Engineering, pp. 50–56, Springer, 2024</p>
+          <div class="tags"><a class="btn" href="https://doi.org/10.1007/978-981-97-8309-0_7">DOI</a></div>
+        </div>
+      </article>
+    </div>
+  </section>
+
+  <section class="section" id="talks">
+    <h2>Talks</h2>
+    <div class="entries">
+      <article class="entry">
+        <span class="date">2026</span>
+        <div class="entry-body">
+          <h3 class="entry-title">Energy Optimization Approach for Mass Timber Office Building Design under Climate Change</h3>
+          <p class="entry-meta">eSIM 2026: Advancing Sustainability and Climate Resilience · Université de Sherbrooke, Longueuil, QC, Canada</p>
+        </div>
+      </article>
+      <article class="entry">
+        <span class="date">2024</span>
+        <div class="entry-body">
+          <h3 class="entry-title">Predicting Building Energy Demand Using Federated Learning with Attribute-Based Clustering</h3>
+          <p class="entry-meta">9th International Building Physics Conference (IBPC 2024) · Toronto Metropolitan University, Toronto, ON, Canada</p>
+        </div>
+      </article>
+      <article class="entry">
+        <span class="date">2023</span>
+        <div class="entry-body">
+          <h3 class="entry-title">Application of the AP1000 Nuclear Power Unit to Supply Heat to the District Heating System</h3>
+          <p class="entry-meta">XV Youth in Power Engineering Conference · Wrocław University of Science and Technology, Wrocław, Poland</p>
+          <span class="award">3rd Place, Best Presentation</span>
+        </div>
+      </article>
+    </div>
+  </section>
+
+  <section class="section" id="honors">
+    <h2>Honors and Service</h2>
+    <div class="cols">
+      <div>
+        <h3 class="sub">Honors and awards</h3>
+        <ul class="list">
+          <li><span>3rd Place, Best Presentation, XV Youth in Power Engineering Conference</span><span class="yr">2023</span></li>
+          <li><span>SPINAKER Scholarship, Poland</span><span class="yr">2022</span></li>
+          <li><span>Ignacy Łukasiewicz Scholarship, Poland</span><span class="yr">2019</span></li>
         </ul>
       </div>
-    </section>
-
-    <section class="sec" id="publications">
-      <h2>Publications</h2>
-      <div class="body">
-        <ul class="entries">
-          <li>
-            <span class="when">Submitted</span>
-            <p class="what cite"><span class="me">Ochono, T.S.</span>, Awol, A., Grolinger, K., Bitsuamlak, G.T. <span class="pt">Integrated Optimization of Energy, Comfort, and Carbon for Sustainable Buildings under Climate Change: A Robust Design Framework.</span> <i>Energy and Buildings</i> (submitted).</p>
-          </li>
-          <li>
-            <span class="when">2025</span>
-            <p class="what cite">Hunde, J.M., <span class="me">Ochono, T.S.</span>, Senevirathne, D., Eneyew, D.D., Bitsuamlak, G.T., Capretz, M.A.M., Grolinger, K. <span class="pt">Data-driven and physics-based modeling approaches and their integration in building digital twins: A systematic review.</span> <i>Journal of Building Engineering</i>, 114, 114214. <a href="https://doi.org/10.1016/j.jobe.2025.114214">doi:10.1016/j.jobe.2025.114214</a></p>
-          </li>
-          <li>
-            <span class="when">2024</span>
-            <p class="what cite">Hunde, J.M., Manmatharasan, P., Senevirathne, D., <span class="me">Ochono, T.S.</span>, Eneyew, D.D., Bitsuamlak, G.T., Capretz, M.A.M., Grolinger, K. <span class="pt">Predicting Building Energy Demand Using Federated Learning with Attribute-Based Clustering.</span> In: <i>Multiphysics and Multiscale Building Physics: Proceedings of the 9th International Building Physics Conference (IBPC 2024)</i>, Lecture Notes in Civil Engineering, pp. 50–56. Springer Nature Singapore. <a href="https://doi.org/10.1007/978-981-97-8309-0_7">doi:10.1007/978-981-97-8309-0_7</a></p>
-          </li>
+      <div>
+        <h3 class="sub">Service and memberships</h3>
+        <ul class="list">
+          <li><span>Volunteer, 8th International Symposium on Computational Wind Engineering (CWE 2026), Western University</span><span class="yr">2026</span></li>
+          <li><span>Member, International Building Performance Simulation Association (IBPSA)</span><span class="yr">2026 – now</span></li>
+          <li><span>Member, American Society of Heating, Refrigerating and Air-Conditioning Engineers (ASHRAE)</span><span class="yr">2026 – now</span></li>
         </ul>
       </div>
-    </section>
+    </div>
+  </section>
 
-    <section class="sec" id="presentations">
-      <h2>Presentations</h2>
-      <div class="body">
-        <ul class="entries">
-          <li>
-            <span class="when">2026</span>
-            <div class="what">
-              <p class="t">Energy Optimization Approach for Mass Timber Office Building Design under Climate Change</p>
-              <p class="d">eSIM 2026: Advancing Sustainability and Climate Resilience, Université de Sherbrooke, Longueuil, QC, Canada</p>
-            </div>
-          </li>
-          <li>
-            <span class="when">2024</span>
-            <div class="what">
-              <p class="t">Predicting Building Energy Demand Using Federated Learning with Attribute-Based Clustering</p>
-              <p class="d">IBPC 2024: International Building Physics Conference, Toronto Metropolitan University, Toronto, ON, Canada</p>
-            </div>
-          </li>
-          <li>
-            <span class="when">2023</span>
-            <div class="what">
-              <p class="t">Application of the AP1000 Nuclear Power Unit to Supply Heat to the District Heating System</p>
-              <p class="d">XV Youth in Power Engineering Conference, Wrocław University of Science and Technology, Wrocław, Poland</p>
-              <p class="note">3rd place, best presentation</p>
-            </div>
-          </li>
-        </ul>
-      </div>
-    </section>
-
-    <section class="sec" id="education">
-      <h2>Education</h2>
-      <div class="body">
-        <ul class="entries">
-          <li>
-            <span class="when">2023–now</span>
-            <div class="what">
-              <p class="t">PhD, Civil and Environmental Engineering (Smart Cities)</p>
-              <p class="d">Western University, London, ON, Canada. Thesis in progress: Integrated Optimization of Energy, Comfort, and Carbon for Sustainable Buildings Using Physics-Based Simulation, Machine Learning, and Digital Twins. Supervisors: Prof. Girma Bitsuamlak and Prof. Katarina Grolinger.</p>
-            </div>
-          </li>
-          <li>
-            <span class="when">2020–2022</span>
-            <div class="what">
-              <p class="t">MSc, Thermal Engineering</p>
-              <p class="d">Warsaw University of Technology, Poland. Thesis: Extracting Heat from Nuclear Power Plants for District Heating: A Case Study of the AP1000. Supervisor: Prof. Rafał Laskowski.</p>
-            </div>
-          </li>
-          <li>
-            <span class="when">2012–2017</span>
-            <div class="what">
-              <p class="t">BSc, Mechanical Engineering</p>
-              <p class="d">Arba Minch University, Ethiopia</p>
-            </div>
-          </li>
-        </ul>
-      </div>
-    </section>
-
-    <section class="sec" id="teaching">
-      <h2>Teaching</h2>
-      <div class="body">
-        <ul class="entries">
-          <li>
-            <span class="when">2024–now</span>
-            <div class="what">
-              <p class="t">Graduate Teaching Assistant, Western University</p>
-              <p class="d">Computational Tools for Civil Engineers (CEE 2219B); Heating, Ventilating and Air Conditioning (MME 3334A); Building Sustainability (CEE 9532); Climate Hazards for Engineers (CEE 9528); Foundations of Engineering Practice (ES 1050)</p>
-            </div>
-          </li>
-          <li>
-            <span class="when">2018–2019</span>
-            <div class="what">
-              <p class="t">Assistant Lecturer, Wolaita Sodo University</p>
-              <p class="d">Department of Mechanical Engineering, Ethiopia. Assisted in Engineering Thermodynamics and Heat Transfer.</p>
-            </div>
-          </li>
-        </ul>
-      </div>
-    </section>
-
-    <section class="sec" id="awards">
-      <h2>Awards &amp; service</h2>
-      <div class="body">
-        <ul class="plain">
-          <li>Ignacy Łukasiewicz Scholarship, Poland</li>
-          <li>SPINAKER Scholarship, Poland</li>
-          <li>3rd Place, Best Presentation, XV Youth in Power Engineering Conference (2023)</li>
-          <li>Volunteer, 8th International Symposium on Computational Wind Engineering (CWE 2026), Western University</li>
-          <li>Member, International Building Performance Simulation Association (IBPSA)</li>
-          <li>Member, American Society of Heating, Refrigerating and Air-Conditioning Engineers (ASHRAE)</li>
-        </ul>
-      </div>
-    </section>
-  </main>
-
-  <footer>Last updated October 2026</footer>
-</div>
+  <footer class="footer">
+    <span>© 2026 Tesfatsyon Simon Ochono</span>
+    <span>Last updated October 2026</span>
+  </footer>
+</main>
 
 <script>
 (function () {
+  // Copy the email address; fall back to selecting it where the clipboard is refused.
   var btn = document.getElementById('copy-email');
   var email = document.getElementById('email');
-  if (!btn || !email) return;
-  btn.addEventListener('click', function () {
-    var text = email.textContent.trim();
-    var done = function (label) {
-      btn.textContent = label;
-      setTimeout(function () { btn.textContent = 'Copy'; }, 1800);
-    };
-    var selectIt = function () {
-      var range = document.createRange();
-      range.selectNodeContents(email);
-      var sel = window.getSelection();
-      sel.removeAllRanges();
-      sel.addRange(range);
-      done('Selected');
-    };
-    try {
-      navigator.clipboard.writeText(text).then(function () { done('Copied'); }, selectIt);
-    } catch (e) {
-      selectIt();
+  if (btn && email) {
+    btn.addEventListener('click', function () {
+      var reset = function (label) {
+        btn.textContent = label;
+        setTimeout(function () { btn.textContent = 'Copy email'; }, 1800);
+      };
+      var select = function () {
+        var range = document.createRange();
+        range.selectNodeContents(email);
+        var sel = window.getSelection();
+        sel.removeAllRanges();
+        sel.addRange(range);
+        reset('Selected');
+      };
+      try {
+        navigator.clipboard.writeText(email.textContent.trim()).then(function () { reset('Copied'); }, select);
+      } catch (e) {
+        select();
+      }
+    });
+  }
+
+  // Show the portrait at the top of the profile card only when photo.jpg exists next to this page.
+  var fig = document.getElementById('portrait');
+  var img = document.getElementById('portrait-img');
+  if (fig && img) {
+    var show = function () { if (img.naturalWidth > 0) { fig.hidden = false; } };
+    if (img.complete) { show(); } else { img.addEventListener('load', show); }
+  }
+})();
+</script>
+<script>
+/* Knuth-Plass line breaking for the bio paragraphs. Browsers fill justified text one line at a time, which
+   leaves wide gaps; this chooses all the line breaks of a paragraph together, as TeX does, so the word
+   spacing is even. If anything goes wrong it restores the paragraph and plain CSS justification takes over. */
+var KP = (function () {
+  var SHY = '­', NBSP = ' ', INF = 100000;
+
+  // Boxes (text pieces), glue (spaces) and penalties (possible hyphen breaks). A no-break space ties two
+  // pieces with glue that can stretch but never break, like ~ in TeX.
+  // Letters may also stretch by up to 1.2% of the font size per letter (or tighten by 0.6%), like the
+  // font expansion of LaTeX's microtype, so spare width is not pushed entirely into the word gaps.
+  function makeItems(text, measure, em) {
+    var out = [], space = measure(' '), hyphen = measure('-'), lsy = 0.012 * em, lsz = 0.006 * em;
+    var words = text.replace(/^[ \t\r\n\f]+|[ \t\r\n\f]+$/g, '').split(/[ \t\r\n\f]+/);
+    for (var w = 0; w < words.length; w++) {
+      var tied = words[w].split(NBSP);
+      for (var q = 0; q < tied.length; q++) {
+        var soft = tied[q].split(SHY);
+        for (var s = 0; s < soft.length; s++) {
+          var hard = soft[s].split('-');
+          for (var h = 0; h < hard.length; h++) {
+            var piece = hard[h] + (h < hard.length - 1 ? '-' : '');
+            if (piece !== '') out.push({ t: 'b', w: measure(piece), s: piece, c: piece.length, y: piece.length * lsy, z: piece.length * lsz });
+            if (h < hard.length - 1 && hard[h] !== '' && hard[h + 1] !== '') out.push({ t: 'p', w: 0, pen: 50, f: true });
+          }
+          if (s < soft.length - 1) out.push({ t: 'p', w: hyphen, pen: 50, f: true });
+        }
+        if (q < tied.length - 1) {
+          out.push({ t: 'p', w: 0, pen: INF, f: false });
+          out.push({ t: 'g', w: space, y: space / 2, z: space / 3, nb: true });
+        }
+      }
+      if (w < words.length - 1) out.push({ t: 'g', w: space, y: space / 2, z: space / 3 });
     }
-  });
+    out.push({ t: 'p', w: 0, pen: INF, f: false });
+    out.push({ t: 'g', w: 0, y: INF, z: 0 });
+    out.push({ t: 'p', w: 0, pen: -INF, f: true });
+    return out;
+  }
+
+  // Returns the lines of the paragraph, or null when no break sequence fits within the tolerance.
+  function findBreaks(items, width, tol) {
+    var n = items.length, W = [0], Y = [0], Z = [0], i, it;
+    for (i = 0; i < n; i++) {
+      it = items[i];
+      W.push(W[i] + (it.t === 'p' ? 0 : it.w));
+      Y.push(Y[i] + (it.t === 'p' ? 0 : it.y));
+      Z.push(Z[i] + (it.t === 'p' ? 0 : it.z));
+    }
+    function lineStart(pos) {
+      var j = pos + 1;
+      while (j < n && items[j].t !== 'b' && !(items[j].t === 'p' && items[j].pen <= -INF)) j++;
+      return j;
+    }
+    var active = [{ pos: -1, dem: 0, prev: null, fit: 1, flag: false }];
+    for (var b = 0; b < n; b++) {
+      it = items[b];
+      var legal = it.t === 'g' ? (b > 0 && items[b - 1].t === 'b') : (it.t === 'p' && it.pen < INF);
+      if (!legal) continue;
+      var forced = it.t === 'p' && it.pen <= -INF, best = null;
+      for (var k = active.length - 1; k >= 0; k--) {
+        var a = active[k], st = lineStart(a.pos), r;
+        var L = W[b] - W[st] + (it.t === 'p' ? it.w : 0);
+        if (L < width) r = Y[b] - Y[st] > 0 ? (width - L) / (Y[b] - Y[st]) : INF;
+        else if (L > width) r = Z[b] - Z[st] > 0 ? (width - L) / (Z[b] - Z[st]) : -INF;
+        else r = 0;
+        if (r < -1 || forced) active.splice(k, 1);
+        if (r >= -1 && r <= tol) {
+          var d = Math.pow(10 + 100 * Math.pow(Math.abs(r), 3), 2);
+          if (it.t === 'p' && it.pen > 0) d += it.pen * it.pen;
+          var flag = it.t === 'p' && it.f && !forced;
+          if (flag && a.flag) d += 10000;  // two hyphenated lines in a row
+          if (forced && a.flag) d += 20000; // hyphen on the second-to-last line
+          if (forced && L < width * 0.2) d += 50000; // a last line of only a word or two
+          var fit = r < -0.5 ? 0 : (r <= 0.5 ? 1 : (r <= 1 ? 2 : 3));
+          if (Math.abs(fit - a.fit) > 1) d += 10000;
+          d += a.dem;
+          if (best === null || d < best.dem) best = { pos: b, dem: d, prev: a, fit: fit, flag: flag };
+        }
+      }
+      if (best !== null) active.push(best);
+      if (active.length === 0) return null;
+    }
+    var fin = null;
+    for (i = 0; i < active.length; i++) {
+      if (active[i].pos === n - 1 && (fin === null || active[i].dem < fin.dem)) fin = active[i];
+    }
+    if (fin === null) return null;
+    var brk = [];
+    for (var x = fin; x !== null && x.pos >= 0; x = x.prev) brk.unshift(x.pos);
+    var lines = [], prev = -1;
+    for (var li = 0; li < brk.length; li++) {
+      var e = brk[li], from = lineStart(prev), text = '', spaces = 0, chars = 0, nat = 0, gy = 0, gz = 0, by = 0, bz = 0;
+      for (i = from; i < e; i++) {
+        it = items[i];
+        if (it.t === 'b') { text += it.s; nat += it.w; chars += it.c; by += it.y; bz += it.z; }
+        else if (it.t === 'g' && it.y < INF) { text += it.nb ? NBSP : ' '; spaces++; nat += it.w; gy += it.y; gz += it.z; }
+      }
+      var hy = items[e].t === 'p' && items[e].w > 0;
+      if (hy) nat += items[e].w;
+      lines.push({ text: text, hyphen: hy, spaces: spaces, chars: chars, nat: nat, gy: gy, gz: gz, by: by, bz: bz, last: li === brk.length - 1 });
+      prev = e;
+    }
+    return lines;
+  }
+
+  // Letter and word spacing (px) that bring a line to the target width: letters take their share of the
+  // stretch (capped), the word gaps take the rest. CSS letter-spacing also widens spaces, so it is removed
+  // from the word spacing.
+  function spacing(ln, target) {
+    var slack = target - ln.nat, r, ls = 0;
+    if (ln.chars > 0) {
+      if (slack >= 0) { r = slack / (ln.gy + ln.by); ls = Math.min(r, 2.5) * (ln.by / ln.chars); }
+      else { r = slack / (ln.gz + ln.bz); ls = Math.max(r, -1) * (ln.bz / ln.chars); }
+    }
+    var gap = ln.spaces > 0 ? (slack - ls * ln.chars) / ln.spaces : 0;
+    return { letter: ls, word: gap - ls, gap: gap };
+  }
+
+  function restore(p) {
+    var src = p.getAttribute('data-kp');
+    if (src !== null) p.textContent = src;
+    p.className = p.className.replace(/(^|\s)kp(?=\s|$)/g, '');
+  }
+
+  function layout(p, ctx) {
+    var src = p.getAttribute('data-kp');
+    if (src === null) { src = p.textContent; p.setAttribute('data-kp', src); }
+    var cs = window.getComputedStyle(p);
+    ctx.font = cs.fontStyle + ' ' + cs.fontWeight + ' ' + cs.fontSize + ' ' + cs.fontFamily;
+    var width = p.clientWidth, lines = null;
+    if (width > 480) {
+      var items = makeItems(src, function (str) { return ctx.measureText(str).width; }, parseFloat(cs.fontSize) || 16);
+      var tols = [2, 4, 10];
+      for (var t = 0; t < tols.length && lines === null; t++) lines = findBreaks(items, width - 1, tols[t]);
+    }
+    if (lines === null) { restore(p); return; }
+    var frag = document.createDocumentFragment();
+    for (var i = 0; i < lines.length; i++) {
+      var ln = lines[i], span = document.createElement('span');
+      span.className = ln.last ? 'kp-line kp-last' : 'kp-line';
+      span.appendChild(document.createTextNode(ln.text));
+      if (ln.hyphen) {
+        var hy = document.createElement('span');
+        hy.className = 'kp-hy';
+        span.appendChild(hy);
+      }
+      // Spacing that fills the line to 3px short; CSS justification then closes the gap exactly.
+      if (!ln.last && ln.spaces > 0) {
+        var sp = spacing(ln, width - 3);
+        span.style.letterSpacing = sp.letter.toFixed(3) + 'px';
+        span.style.wordSpacing = sp.word.toFixed(3) + 'px';
+      }
+      frag.appendChild(span);
+    }
+    p.textContent = '';
+    p.appendChild(frag);
+    if (!/(^|\s)kp(\s|$)/.test(p.className)) p.className += (p.className ? ' ' : '') + 'kp';
+    // If the browser measured differently and any line wrapped, fall back to plain justification.
+    var kids = p.childNodes, ref = kids[kids.length - 1].offsetHeight;
+    for (i = 0; i < kids.length; i++) {
+      if (kids[i].offsetHeight > ref * 1.5) { restore(p); return; }
+    }
+  }
+
+  var lastWidth = -1, timer = null;
+
+  function run() {
+    var bio = document.querySelector('.bio');
+    var canvas = document.createElement('canvas');
+    var ctx = canvas.getContext ? canvas.getContext('2d') : null;
+    if (!bio || !ctx) return;
+    var ps = bio.querySelectorAll('p');
+    for (var i = 0; i < ps.length; i++) {
+      try { layout(ps[i], ctx); } catch (err) { restore(ps[i]); }
+    }
+    lastWidth = bio.clientWidth;
+  }
+
+  function onResize() {
+    var bio = document.querySelector('.bio');
+    if (!bio || bio.clientWidth === lastWidth) return;
+    var ps = bio.querySelectorAll('p');
+    for (var i = 0; i < ps.length; i++) restore(ps[i]);
+    clearTimeout(timer);
+    timer = setTimeout(run, 150);
+  }
+
+  if (typeof document !== 'undefined' && document.querySelector) {
+    window.addEventListener('resize', onResize);
+    if (document.fonts && document.fonts.ready) document.fonts.ready.then(run, run);
+    else window.addEventListener('load', run);
+  }
+
+  return { makeItems: makeItems, findBreaks: findBreaks, spacing: spacing };
 })();
 </script>
 </body>
