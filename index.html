@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <meta name="description" content="Tesfatsyon Simon Ochono, PhD candidate in Civil and Environmental Engineering at Western University: building energy, climate-adaptive design optimization and machine learning.">
-<title>Tesfatsyon S. Ochono</title>
+<title>Tesfatsyon Simon Ochono</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wght@500;600;700&family=IBM+Plex+Mono:wght@400;500&family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,600;1,8..60,400&display=swap">
@@ -164,6 +164,8 @@ h1 {
 .cite .pt { font-weight: 600; }
 .plain { list-style: none; margin: 0; padding: 0; display: grid; gap: 0.6rem; }
 .note { font-family: var(--font-mono); font-size: 0.78rem; color: var(--done); }
+.topics { gap: 0.75rem; }
+.topics li { font-family: var(--font-display); font-weight: 600; font-size: 1.12rem; line-height: 1.35; }
 
 footer { border-top: 1px solid var(--rule); padding-top: 1.25rem; font-size: 0.85rem; color: var(--muted); font-family: var(--font-mono); }
 
@@ -188,7 +190,7 @@ img { max-width: 100%; }
 <div class="page">
   <header class="masthead">
     <p class="eyebrow">PhD Candidate · Western University</p>
-    <h1>Tesfatsyon S. Ochono</h1>
+    <h1>Tesfatsyon Simon Ochono</h1>
     <p class="lede">I combine physics-based building simulation with machine learning to design buildings that stay energy-efficient, comfortable and low-carbon as the climate warms.</p>
     <p class="affil">Department of Civil and Environmental Engineering (Smart Cities), Western University, London, Ontario, Canada</p>
     <ul class="links">
@@ -198,19 +200,6 @@ img { max-width: 100%; }
       <li><a href="https://www.linkedin.com/in/tesfatsyon-s-ochono-a0023b118/">LinkedIn</a></li>
     </ul>
     <p class="contact"><span class="label">Email</span> <code id="email">tochono@uwo.ca</code> <button class="copy" id="copy-email" type="button">Copy</button></p>
-    <figure class="strip" aria-label="Warming levels used in my research">
-      <div class="cells">
-        <div class="cell"><div class="swatch" style="background:#3f6fa6"></div><span>Hist.</span></div>
-        <div class="cell"><div class="swatch" style="background:#7097c3"></div><span>+0.5</span></div>
-        <div class="cell"><div class="swatch" style="background:#a8c0da"></div><span>+1.0</span></div>
-        <div class="cell"><div class="swatch" style="background:#e3d6c3"></div><span>+1.5</span></div>
-        <div class="cell"><div class="swatch" style="background:#eeb38b"></div><span>+2.0</span></div>
-        <div class="cell"><div class="swatch" style="background:#df865b"></div><span>+2.5</span></div>
-        <div class="cell"><div class="swatch" style="background:#c65a3b"></div><span>+3.0</span></div>
-        <div class="cell"><div class="swatch" style="background:#a2381f"></div><span>+3.5</span></div>
-      </div>
-      <figcaption>Warming levels in my research: NRC future weather data for London, Ontario, from the 1991–2021 baseline to +3.5&nbsp;°C of global warming.</figcaption>
-    </figure>
   </header>
 
   <nav class="toc" aria-label="Sections">
@@ -237,22 +226,12 @@ img { max-width: 100%; }
 
     <section class="sec" id="research">
       <h2>Research</h2>
-      <div class="body projects">
-        <article class="project">
-          <h3>Climate-adaptive robust design optimization</h3>
-          <span class="status done">Completed · manuscript submitted</span>
-          <p>Physics-based design optimization of a four-storey mass timber office in London, Ontario, using EnergyPlus simulation. Designs are optimized for energy use within thermal comfort and embodied carbon limits, then tested across typical and extreme weather years for the historical climate and for +1, +2 and +3&nbsp;°C of warming.</p>
-        </article>
-        <article class="project">
-          <h3>Climate-guided surrogate models with explainable AI</h3>
-          <span class="status now">In progress</span>
-          <p>Machine-learning surrogate models take a building design and a physical description of the climate as inputs and predict heating, cooling and thermal discomfort. They are tested on extreme weather years they never saw in training, and explainable AI shows which design variables drive performance as the climate warms.</p>
-        </article>
-        <article class="project">
-          <h3>AI for energy-efficient data centre cooling</h3>
-          <span class="status next">Planned</span>
-          <p>Cooling design optimization for a hybrid air- and liquid-cooled data centre under current and future climates, using machine-learning surrogate models.</p>
-        </article>
+      <div class="body">
+        <ul class="plain topics">
+          <li>Climate-adaptive robust design optimization</li>
+          <li>Climate-guided surrogate models with explainable AI</li>
+          <li>AI for energy-efficient data centre cooling</li>
+        </ul>
       </div>
     </section>
 
