@@ -3,6 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="theme-color" content="#4f2683">
 <meta name="description" content="Tesfatsyon Simon Ochono is a PhD candidate in Civil and Environmental Engineering at Western University, working on building energy, climate-adaptive design and machine learning.">
 <meta property="og:type" content="profile">
 <meta property="og:title" content="Tesfatsyon Simon Ochono">
@@ -14,19 +15,22 @@
 <style>
 /* Layout: journal-style researcher homepage on a 64rem page. Name spans the top; below it the bio sits beside a
    profile card (photo, profiles, contact) so the full width is used; sections then run the full width, with
-   publications set like a reference list. One signature detail: a thin infrared-thermography line on the top bar. */
+   publications set like a reference list. Colour: Western Purple (#4F2683) for the top bar, footer, section rules
+   and accents. */
 :root {
   --paper: #fbfcfd;
-  --paper-glass: rgba(251, 252, 253, 0.9);
   --card: #ffffff;
   --ink: #141a24;
   --ink-2: #4a5365;
   --ink-3: #6b7486;
   --line: #e1e5ec;
-  --tint: #edf1f7;
-  --accent: #1d4f9a;
-  --accent-2: #12386f;
-  --thermal: linear-gradient(90deg, #170b3b 0%, #4a0f6b 16%, #8f1c6c 32%, #cf3a3a 50%, #ec7a1f 68%, #f7c13e 84%, #fbf0b4 100%);
+  --tint: #f1ecf8;
+  --accent: #4f2683;
+  --accent-2: #36195c;
+  --western: #4f2683;
+  --western-rule: #4f2683;
+  --on-western: #ffffff;
+  --on-western-2: rgba(255, 255, 255, 0.8);
   --serif: "STIX Two Text", "STIX Two", "Times New Roman", Georgia, serif;
   --sans: "IBM Plex Sans", "Helvetica Neue", Arial, sans-serif;
   --mono: "IBM Plex Mono", ui-monospace, Menlo, Consolas, monospace;
@@ -34,29 +38,31 @@
 @media (prefers-color-scheme: dark) {
   :root:not([data-theme="light"]) {
     --paper: #0e1117;
-    --paper-glass: rgba(14, 17, 23, 0.88);
     --card: #141922;
     --ink: #e7eaf0;
     --ink-2: #aab2c0;
     --ink-3: #8d96a6;
     --line: #262c37;
-    --tint: #18202c;
-    --accent: #8fb5f0;
-    --accent-2: #b9d0f6;
+    --tint: #1f1a2b;
+    --accent: #c2adea;
+    --accent-2: #ddd1f5;
+    --western: #3a2161;
+    --western-rule: #a58bd8;
     color-scheme: dark;
   }
 }
 :root[data-theme="dark"] {
   --paper: #0e1117;
-  --paper-glass: rgba(14, 17, 23, 0.88);
   --card: #141922;
   --ink: #e7eaf0;
   --ink-2: #aab2c0;
   --ink-3: #8d96a6;
   --line: #262c37;
-  --tint: #18202c;
-  --accent: #8fb5f0;
-  --accent-2: #b9d0f6;
+  --tint: #1f1a2b;
+  --accent: #c2adea;
+  --accent-2: #ddd1f5;
+  --western: #3a2161;
+  --western-rule: #a58bd8;
   color-scheme: dark;
 }
 
@@ -89,12 +95,10 @@ ul { margin: 0; padding: 0; list-style: none; }
   position: sticky;
   top: env(safe-area-inset-top, 0px);
   z-index: 10;
-  background: var(--paper-glass);
-  -webkit-backdrop-filter: saturate(140%) blur(8px);
-  backdrop-filter: saturate(140%) blur(8px);
-  border-bottom: 1px solid var(--line);
+  background: var(--western);
+  color: var(--on-western);
 }
-.topbar::before { content: ""; display: block; height: 3px; background: var(--thermal); }
+.topbar :focus-visible, .site-footer :focus-visible { outline-color: var(--on-western); }
 .bar {
   max-width: 64rem;
   margin-inline: auto;
@@ -105,12 +109,12 @@ ul { margin: 0; padding: 0; list-style: none; }
   justify-content: space-between;
   gap: 0.5rem 1.5rem;
 }
-.brand { font-family: var(--serif); font-weight: 600; font-size: 1.02rem; color: var(--ink); white-space: nowrap; }
-.brand:hover { color: var(--accent); text-decoration: none; }
+.brand { font-family: var(--serif); font-weight: 600; font-size: 1.02rem; color: var(--on-western); white-space: nowrap; }
+.brand:hover { color: var(--on-western); text-decoration: none; }
 .menu { display: flex; gap: 0.25rem 1.15rem; font-family: var(--sans); font-size: 0.88rem; font-weight: 500; overflow-x: auto; scrollbar-width: none; min-width: 0; }
 .menu::-webkit-scrollbar { display: none; }
-.menu a { color: var(--ink-2); white-space: nowrap; padding-block: 0.15rem; }
-.menu a:hover { color: var(--accent); text-decoration: none; }
+.menu a { color: var(--on-western-2); white-space: nowrap; padding-block: 0.15rem; }
+.menu a:hover { color: var(--on-western); text-decoration: underline; text-decoration-thickness: 2px; text-underline-offset: 0.4em; }
 
 .wrap { max-width: 64rem; margin-inline: auto; padding-inline: clamp(16px, 4vw, 40px); }
 
@@ -139,7 +143,7 @@ ul { margin: 0; padding: 0; list-style: none; }
 .entry-detail, .entry-meta, .authors, .where { text-align: justify; }
 
 /* Profile card beside the bio */
-.card { display: grid; gap: 0.7rem; background: var(--card); border: 1px solid var(--line); border-radius: 10px; padding: 1.1rem 1.15rem 1.15rem; }
+.card { display: grid; gap: 0.7rem; background: var(--card); border: 1px solid var(--line); border-top: 3px solid var(--western-rule); border-radius: 10px; padding: 1.1rem 1.15rem 1.15rem; }
 .portrait { margin: 0 0 0.4rem; }
 .portrait img { display: block; width: 100%; aspect-ratio: 4 / 5; object-fit: cover; border-radius: 6px; background: var(--tint); }
 .card-label { font-family: var(--sans); font-size: 0.7rem; font-weight: 600; letter-spacing: 0.13em; text-transform: uppercase; color: var(--ink-3); }
@@ -164,7 +168,8 @@ ul { margin: 0; padding: 0; list-style: none; }
 .copy:hover { border-color: var(--accent); }
 
 /* Sections */
-.section { border-top: 1px solid var(--line); padding-block: 2.75rem; display: grid; gap: 1.6rem; scroll-margin-top: 4.5rem; }
+.section { position: relative; border-top: 1px solid var(--line); padding-block: 2.75rem; display: grid; gap: 1.6rem; scroll-margin-top: 4.5rem; }
+.section::before { content: ""; position: absolute; top: -2px; left: 0; width: 3rem; height: 3px; background: var(--western-rule); }
 .section h2 { font-family: var(--serif); font-weight: 600; font-size: 1.6rem; line-height: 1.2; letter-spacing: -0.005em; }
 .sub { font-family: var(--sans); font-size: 0.76rem; font-weight: 600; letter-spacing: 0.12em; text-transform: uppercase; color: var(--ink-3); margin-bottom: 0.6rem; }
 
@@ -219,7 +224,8 @@ ul { margin: 0; padding: 0; list-style: none; }
 .list li:last-child { border-bottom: 0; }
 .list .yr { font-family: var(--mono); font-size: 0.78rem; color: var(--ink-3); white-space: nowrap; }
 
-.footer { border-top: 1px solid var(--line); padding-block: 1.75rem 2.75rem; display: flex; flex-wrap: wrap; justify-content: space-between; gap: 0.5rem 1.5rem; font-family: var(--sans); font-size: 0.8rem; color: var(--ink-3); }
+.site-footer { background: var(--western); color: var(--on-western-2); font-family: var(--sans); font-size: 0.8rem; }
+.foot { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 0.5rem 1.5rem; padding-block: 1.6rem calc(1.6rem + env(safe-area-inset-bottom, 0px)); }
 
 @media (max-width: 860px) {
   .hero-body { grid-template-columns: minmax(0, 1fr); }
@@ -456,12 +462,14 @@ ul { margin: 0; padding: 0; list-style: none; }
       </div>
     </div>
   </section>
+</main>
 
-  <footer class="footer">
+<footer class="site-footer">
+  <div class="wrap foot">
     <span>© 2026 Tesfatsyon Simon Ochono</span>
     <span>Last updated October 2026</span>
-  </footer>
-</main>
+  </div>
+</footer>
 
 <script>
 (function () {
