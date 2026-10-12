@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<meta name="theme-color" content="#4f2683">
+<meta name="theme-color" content="#367a2a">
 <meta name="description" content="Tesfatsyon Simon Ochono is a PhD candidate in Civil and Environmental Engineering at Western University, working on building energy, climate-adaptive design and machine learning.">
 <meta property="og:type" content="profile">
 <meta property="og:title" content="Tesfatsyon Simon Ochono">
@@ -13,10 +13,12 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:wght@400;500;600&family=STIX+Two+Text:ital,wght@0,400;0,600;0,700;1,400&display=swap">
 <style>
-/* Layout: journal-style researcher homepage on a 64rem page. Name spans the top; below it the bio sits beside a
-   profile card (photo, profiles, contact) so the full width is used; sections then run the full width, with
-   publications set like a reference list. Colour: Western Purple (#4F2683) for the top bar, footer, section rules
-   and accents. */
+/* Layout: journal-style researcher homepage on a 64rem page. The name runs across the top, then a wide panel of
+   animated drawings of the three research themes, set like a paper's graphical abstract on faint isometric drafting
+   grid; below it the bio sits beside a profile card (photo, profiles, contact); sections then run the full width,
+   with publications set like a reference list. Colour: a data-centre green (#367a2a) for the menu bar and footer, a
+   brighter green (#66b032, near but not NVIDIA's #76b900) for section rules, and a deeper green for text accents;
+   the drawings use green ink on light fills, with teal and amber only for cool and warm flows. */
 :root {
   --paper: #fbfcfd;
   --card: #ffffff;
@@ -24,13 +26,35 @@
   --ink-2: #4a5365;
   --ink-3: #6b7486;
   --line: #e1e5ec;
-  --tint: #f1ecf8;
-  --accent: #4f2683;
-  --accent-2: #36195c;
-  --western: #4f2683;
-  --western-rule: #4f2683;
-  --on-western: #ffffff;
-  --on-western-2: rgba(255, 255, 255, 0.8);
+  --tint: #eef6e6;
+  --accent: #2f7a1f;
+  --accent-2: #225a16;
+  --brand: #367a2a;
+  --brand-rule: #66b032;
+  --on-brand: #ffffff;
+  --on-brand-2: rgba(255, 255, 255, 0.9);
+  --fig: #f3f7f0;
+  --art-line: #2c5233;
+  --art-soft: rgba(44, 82, 51, 0.42);
+  --art-faint: rgba(44, 82, 51, 0.1);
+  --art-grid: rgba(44, 82, 51, 0.08);
+  --art-top: #ffffff;
+  --art-right: #e4efdb;
+  --art-left: #c6dcb7;
+  --art-roof: #b3d59b;
+  --art-canopy: #8fc26e;
+  --art-glass: #3f6b5a;
+  --art-pv: #35596a;
+  --art-metal-t: #f5f7f4;
+  --art-metal-r: #dfe6dc;
+  --art-metal-l: #c4cec0;
+  --art-deep: #1f3725;
+  --art-rack: #33533c;
+  --art-blade: #d4e6c9;
+  --art-accent: #3f8f22;
+  --art-cold: #17917e;
+  --art-hot: #e0951a;
+  --art-led: #63cf35;
   --serif: "STIX Two Text", "STIX Two", "Times New Roman", Georgia, serif;
   --sans: "IBM Plex Sans", "Helvetica Neue", Arial, sans-serif;
   --mono: "IBM Plex Mono", ui-monospace, Menlo, Consolas, monospace;
@@ -43,11 +67,33 @@
     --ink-2: #aab2c0;
     --ink-3: #8d96a6;
     --line: #262c37;
-    --tint: #1f1a2b;
-    --accent: #c2adea;
-    --accent-2: #ddd1f5;
-    --western: #3a2161;
-    --western-rule: #a58bd8;
+    --tint: #17241a;
+    --accent: #8fd15a;
+    --accent-2: #b5e48c;
+    --brand: #1c4a22;
+    --brand-rule: #7cc142;
+    --fig: #121915;
+    --art-line: #b9dcae;
+    --art-soft: rgba(185, 220, 174, 0.42);
+    --art-faint: rgba(185, 220, 174, 0.1);
+    --art-grid: rgba(185, 220, 174, 0.065);
+    --art-top: #2d3d30;
+    --art-right: #23322a;
+    --art-left: #19251d;
+    --art-roof: #36542f;
+    --art-canopy: #4f8a3a;
+    --art-glass: #4d8a74;
+    --art-pv: #3f6f80;
+    --art-metal-t: #323d35;
+    --art-metal-r: #27312b;
+    --art-metal-l: #1d2520;
+    --art-deep: #0a110c;
+    --art-rack: #1d2d22;
+    --art-blade: #8fb889;
+    --art-accent: #8fd15a;
+    --art-cold: #6fd6c2;
+    --art-hot: #f3c96a;
+    --art-led: #9be06a;
     color-scheme: dark;
   }
 }
@@ -58,11 +104,33 @@
   --ink-2: #aab2c0;
   --ink-3: #8d96a6;
   --line: #262c37;
-  --tint: #1f1a2b;
-  --accent: #c2adea;
-  --accent-2: #ddd1f5;
-  --western: #3a2161;
-  --western-rule: #a58bd8;
+  --tint: #17241a;
+  --accent: #8fd15a;
+  --accent-2: #b5e48c;
+  --brand: #1c4a22;
+  --brand-rule: #7cc142;
+  --fig: #121915;
+  --art-line: #b9dcae;
+  --art-soft: rgba(185, 220, 174, 0.42);
+  --art-faint: rgba(185, 220, 174, 0.1);
+  --art-grid: rgba(185, 220, 174, 0.065);
+  --art-top: #2d3d30;
+  --art-right: #23322a;
+  --art-left: #19251d;
+  --art-roof: #36542f;
+  --art-canopy: #4f8a3a;
+  --art-glass: #4d8a74;
+  --art-pv: #3f6f80;
+  --art-metal-t: #323d35;
+  --art-metal-r: #27312b;
+  --art-metal-l: #1d2520;
+  --art-deep: #0a110c;
+  --art-rack: #1d2d22;
+  --art-blade: #8fb889;
+  --art-accent: #8fd15a;
+  --art-cold: #6fd6c2;
+  --art-hot: #f3c96a;
+  --art-led: #9be06a;
   color-scheme: dark;
 }
 
@@ -95,10 +163,10 @@ ul { margin: 0; padding: 0; list-style: none; }
   position: sticky;
   top: env(safe-area-inset-top, 0px);
   z-index: 10;
-  background: var(--western);
-  color: var(--on-western);
+  background: var(--brand);
+  color: var(--on-brand);
 }
-.topbar :focus-visible, .site-footer :focus-visible { outline-color: var(--on-western); }
+.topbar :focus-visible, .site-footer :focus-visible { outline-color: var(--on-brand); }
 .bar {
   max-width: 64rem;
   margin-inline: auto;
@@ -109,25 +177,51 @@ ul { margin: 0; padding: 0; list-style: none; }
   justify-content: space-between;
   gap: 0.5rem 1.5rem;
 }
-.brand { font-family: var(--serif); font-weight: 600; font-size: 1.02rem; color: var(--on-western); white-space: nowrap; }
-.brand:hover { color: var(--on-western); text-decoration: none; }
+.brand { font-family: var(--serif); font-weight: 600; font-size: 1.02rem; color: var(--on-brand); white-space: nowrap; }
+.brand:hover { color: var(--on-brand); text-decoration: none; }
 .menu { display: flex; gap: 0.25rem 1.15rem; font-family: var(--sans); font-size: 0.88rem; font-weight: 500; overflow-x: auto; scrollbar-width: none; min-width: 0; }
 .menu::-webkit-scrollbar { display: none; }
-.menu a { color: var(--on-western-2); white-space: nowrap; padding-block: 0.15rem; }
-.menu a:hover { color: var(--on-western); text-decoration: underline; text-decoration-thickness: 2px; text-underline-offset: 0.4em; }
+.menu a { color: var(--on-brand-2); white-space: nowrap; padding-block: 0.15rem; }
+.menu a:hover { color: var(--on-brand); text-decoration: underline; text-decoration-thickness: 2px; text-underline-offset: 0.4em; }
 
 .wrap { max-width: 64rem; margin-inline: auto; padding-inline: clamp(16px, 4vw, 40px); }
 
-/* Identity block */
-.hero { display: grid; gap: 1rem; padding-block: clamp(2.5rem, 6vw, 4.25rem) 3rem; }
-.kicker { font-family: var(--sans); font-size: 0.76rem; font-weight: 600; letter-spacing: 0.13em; text-transform: uppercase; color: var(--accent); }
-.name { font-family: var(--serif); font-weight: 400; font-size: clamp(2rem, 4.4vw, 2.75rem); line-height: 1.1; letter-spacing: -0.005em; }
+/* Identity: kicker, the name on one line where it fits, the role, then the drawings of the research themes */
+.identity { display: grid; gap: 0.85rem; padding-block: clamp(2.25rem, 5vw, 3.25rem) 0; scroll-margin-top: 4.5rem; }
+.kicker { font-family: var(--sans); font-size: 0.76rem; font-weight: 600; letter-spacing: 0.13em; text-transform: uppercase; color: var(--accent); text-wrap: balance; }
+.name { font-family: var(--serif); font-weight: 400; font-size: clamp(2rem, 3.9vw, 2.9rem); line-height: 1.08; letter-spacing: -0.008em; }
 .name b { font-weight: 700; }
-.role { display: flex; flex-wrap: wrap; gap: 0.15rem 0.55rem; font-family: var(--sans); font-size: 0.98rem; line-height: 1.55; color: var(--ink-2); }
+.role { display: flex; flex-wrap: wrap; gap: 0.15rem 0.55rem; font-family: var(--sans); font-size: 1rem; line-height: 1.55; color: var(--ink-2); }
 .role span { white-space: nowrap; }
 .role strong { color: var(--ink); font-weight: 600; }
 .role .sep { color: var(--ink-3); }
-.hero-body { display: grid; grid-template-columns: minmax(0, 1fr) 17rem; gap: 2rem 2.5rem; align-items: start; margin-top: 1rem; }
+
+/* Research drawings: a tinted panel with an isometric drafting grid, then theme buttons and a one-line caption */
+.abstract { margin: 1.1rem 0 0; display: grid; gap: 0.6rem; }
+.abstract-art { position: relative; aspect-ratio: 3 / 1; max-width: 100%; background: var(--fig); border: 1px solid var(--line); border-radius: 12px; overflow: hidden; }
+.abstract-art canvas { position: absolute; inset: 0; display: block; width: 100%; height: 100%; }
+.abstract-art .scene { opacity: 0; transition: opacity 1.1s ease; }
+.abstract-art .scene.is-on { opacity: 1; }
+.reel-bar { display: grid; gap: 0.2rem; }
+.reel-tabs { display: flex; flex-wrap: wrap; align-items: center; gap: 0 1.6rem; }
+.tab { position: relative; padding: 0.55rem 0 0.75rem; font-family: var(--sans); font-size: 0.88rem; font-weight: 500; line-height: 1.2; color: var(--ink-2); background: none; border: 0; cursor: pointer; }
+.tab::before, .tab::after { content: ""; position: absolute; left: 0; right: 0; bottom: 0.2rem; height: 2px; border-radius: 2px; }
+.tab::before { background: var(--line); }
+.tab::after { background: var(--accent); transform: scaleX(var(--p, 0)); transform-origin: left center; }
+.tab:hover, .tab.is-on { color: var(--ink); }
+.reel-toggle { display: grid; place-items: center; width: 1.9rem; height: 1.9rem; margin-left: auto; padding: 0; color: var(--ink-2); background: none; border: 1px solid var(--line); border-radius: 50%; cursor: pointer; }
+.reel-toggle:hover { color: var(--accent); border-color: var(--accent); }
+.reel-toggle svg { width: 0.7rem; height: 0.7rem; }
+.reel-toggle .i-play, .abstract.is-paused .reel-toggle .i-pause { display: none; }
+.abstract.is-paused .reel-toggle .i-play { display: block; }
+.reel-note { font-family: var(--sans); font-size: 0.92rem; line-height: 1.5; color: var(--ink-3); }
+@media (max-width: 899px) { .abstract-art { aspect-ratio: 2 / 1; } }
+@media (max-width: 560px) { .abstract-art { aspect-ratio: 3 / 2; } }
+@media (prefers-reduced-motion: reduce) { .abstract-art .scene { transition: none; } }
+
+/* About: bio and profile card */
+.hero { padding-block: clamp(2rem, 4.5vw, 2.75rem) 3rem; }
+.hero-body { display: grid; grid-template-columns: minmax(0, 1fr) 17rem; gap: 2rem 2.5rem; align-items: start; }
 .bio { display: grid; grid-template-columns: minmax(0, 1fr); gap: 1rem; font-size: 1.08rem; line-height: 1.72; min-width: 0; }
 /* Straight right edges on running text, as in a printed paper; headings stay left-aligned */
 .bio p { text-align: justify; -webkit-hyphens: auto; hyphens: auto; }
@@ -143,7 +237,7 @@ ul { margin: 0; padding: 0; list-style: none; }
 .entry-detail, .entry-meta, .authors, .where { text-align: justify; }
 
 /* Profile card beside the bio */
-.card { display: grid; gap: 0.7rem; background: var(--card); border: 1px solid var(--line); border-top: 3px solid var(--western-rule); border-radius: 10px; padding: 1.1rem 1.15rem 1.15rem; }
+.card { display: grid; gap: 0.7rem; background: var(--card); border: 1px solid var(--line); border-top: 3px solid var(--brand-rule); border-radius: 10px; padding: 1.1rem 1.15rem 1.15rem; }
 .portrait { margin: 0 0 0.4rem; }
 .portrait img { display: block; width: 100%; aspect-ratio: 4 / 5; object-fit: cover; border-radius: 6px; background: var(--tint); }
 .card-label { font-family: var(--sans); font-size: 0.7rem; font-weight: 600; letter-spacing: 0.13em; text-transform: uppercase; color: var(--ink-3); }
@@ -169,7 +263,7 @@ ul { margin: 0; padding: 0; list-style: none; }
 
 /* Sections */
 .section { position: relative; border-top: 1px solid var(--line); padding-block: 2.75rem; display: grid; gap: 1.6rem; scroll-margin-top: 4.5rem; }
-.section::before { content: ""; position: absolute; top: -2px; left: 0; width: 3rem; height: 3px; background: var(--western-rule); }
+.section::before { content: ""; position: absolute; top: -2px; left: 0; width: 3rem; height: 3px; background: var(--brand-rule); }
 .section h2 { font-family: var(--serif); font-weight: 600; font-size: 1.6rem; line-height: 1.2; letter-spacing: -0.005em; }
 .sub { font-family: var(--sans); font-size: 0.76rem; font-weight: 600; letter-spacing: 0.12em; text-transform: uppercase; color: var(--ink-3); margin-bottom: 0.6rem; }
 
@@ -215,7 +309,9 @@ ul { margin: 0; padding: 0; list-style: none; }
 .entry-title { font-family: var(--serif); font-weight: 600; font-size: 1.08rem; line-height: 1.4; }
 .entry-meta { font-family: var(--sans); font-size: 0.88rem; line-height: 1.55; color: var(--ink-2); }
 .entry-detail { font-size: 0.98rem; color: var(--ink-2); }
+.entry-detail { -webkit-hyphens: auto; hyphens: auto; }
 .entry-detail i { color: var(--ink); }
+.entry-list { font-family: var(--sans); font-size: 0.86rem; line-height: 1.6; color: var(--ink-3); }
 .award { justify-self: start; font: 600 0.72rem/1 var(--sans); letter-spacing: 0.05em; text-transform: uppercase; color: var(--accent); background: var(--tint); border-radius: 4px; padding: 0.34rem 0.55rem; margin-top: 0.2rem; }
 
 /* Honors and service */
@@ -224,7 +320,7 @@ ul { margin: 0; padding: 0; list-style: none; }
 .list li:last-child { border-bottom: 0; }
 .list .yr { font-family: var(--mono); font-size: 0.78rem; color: var(--ink-3); white-space: nowrap; }
 
-.site-footer { background: var(--western); color: var(--on-western-2); font-family: var(--sans); font-size: 0.8rem; }
+.site-footer { background: var(--brand); color: var(--on-brand-2); font-family: var(--sans); font-size: 0.8rem; }
 .foot { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 0.5rem 1.5rem; padding-block: 1.6rem calc(1.6rem + env(safe-area-inset-bottom, 0px)); }
 
 @media (max-width: 860px) {
@@ -278,11 +374,34 @@ ul { margin: 0; padding: 0; list-style: none; }
   </div>
 </header>
 
-<main class="wrap">
-  <section class="hero" id="about">
+<main class="wrap" lang="en">
+  <section class="identity" id="about" aria-labelledby="name">
     <p class="kicker">Building Energy · Climate Adaptation · Machine Learning</p>
-    <h1 class="name">Tesfatsyon Simon <b>Ochono</b></h1>
+    <h1 class="name" id="name">Tesfatsyon Simon <b>Ochono</b></h1>
     <p class="role"><span><strong>PhD Candidate</strong></span><span class="sep" aria-hidden="true">·</span><span>Civil and Environmental Engineering</span><span class="sep" aria-hidden="true">·</span><span>Western University, London, Ontario, Canada</span></p>
+    <figure class="abstract" id="reel" aria-roledescription="carousel" aria-label="Research themes, illustrated">
+      <div class="abstract-art" id="art">
+        <canvas class="drafting" aria-hidden="true"></canvas>
+        <canvas class="scene is-on" role="img" aria-label="Illustration: an office on a planted plaza; as the warming level rises, its windows shrink, its shading fins deepen and solar panels fill its green roof"></canvas>
+        <canvas class="scene" role="img" aria-hidden="true" aria-label="Illustration: annual temperature curves for cooler and warmer climates feed a small neural network that predicts the energy use of three building designs"></canvas>
+        <canvas class="scene" role="img" aria-hidden="true" aria-label="Illustration: a data center with its IT hall, air-side economizer, rooftop dry coolers, chillers, cooling tower and chilled-water loop"></canvas>
+      </div>
+      <figcaption class="reel-bar">
+        <div class="reel-tabs" id="reel-tabs" role="group" aria-label="Choose a research theme" hidden>
+          <button class="tab is-on" type="button" aria-current="true">Climate-adaptive design</button>
+          <button class="tab" type="button">Surrogate models</button>
+          <button class="tab" type="button">Data center design</button>
+          <button class="reel-toggle" id="reel-toggle" type="button" aria-label="Pause the animation">
+            <svg class="i-pause" viewBox="0 0 10 10" aria-hidden="true"><rect x="1.5" y="1" width="2.4" height="8" fill="currentColor"/><rect x="6.1" y="1" width="2.4" height="8" fill="currentColor"/></svg>
+            <svg class="i-play" viewBox="0 0 10 10" aria-hidden="true"><path d="M2.5 1 9 5 2.5 9z" fill="currentColor"/></svg>
+          </button>
+        </div>
+        <p class="reel-note" id="reel-note" aria-live="off">An office adapts its windows, shading fins and rooftop solar panels as the climate warms.</p>
+      </figcaption>
+    </figure>
+  </section>
+
+  <section class="hero" aria-label="Biography">
     <div class="hero-body">
       <div class="bio" lang="en">
         <p>Tesfatsyon Simon Ochono is a PhD can&shy;di&shy;date in Civil and En&shy;vi&shy;ron&shy;men&shy;tal En&shy;gi&shy;neer&shy;ing (Smart Cities) at West&shy;ern Uni&shy;ver&shy;sity, sup&shy;erv&shy;ised by Prof. Girma Bitsuamlak and Prof. Katarina Grolinger. Tesfatsyon's re&shy;search com&shy;bines phys&shy;ics-based sim&shy;u&shy;la&shy;tion and data-driven ap&shy;proaches for en&shy;ergy-ef&shy;fi&shy;cient, com&shy;fort&shy;able and low-car&shy;bon build&shy;ing de&shy;signs as the cli&shy;mate&nbsp;changes.</p>
@@ -339,7 +458,7 @@ ul { margin: 0; padding: 0; list-style: none; }
         <div class="entry-body">
           <h3 class="entry-title">PhD, Civil and Environmental Engineering (Smart Cities)</h3>
           <p class="entry-meta">Western University, London, ON, Canada</p>
-          <p class="entry-detail">Thesis (in progress): <i>Integrated Design Optimization for Sustainable Buildings and Data Centers Using Physics-Based Simulation and Machine Learning</i></p>
+          <p class="entry-detail">Thesis (in progress): <i>Integrated Design Optimization for Sustainable Buildings and Data Centers Using Physics-Based Simulation and Machine Learning Under Climate Change</i></p>
           <p class="entry-detail">Advisors: Prof. Girma Bitsuamlak and Prof. Katarina Grolinger</p>
         </div>
       </article>
@@ -369,7 +488,9 @@ ul { margin: 0; padding: 0; list-style: none; }
         <span class="date">2024 – now</span>
         <div class="entry-body">
           <h3 class="entry-title">Graduate Teaching Assistant</h3>
-          <p class="entry-meta">Western University, Canada</p>
+          <p class="entry-meta">Western University, London, ON, Canada</p>
+          <p class="entry-detail">Teaching support for undergraduate and graduate courses in building energy, sustainability, climate hazards and engineering practice.</p>
+          <p class="entry-list">Heating, Ventilating and Air Conditioning (MME&nbsp;3334A) · Building Sustainability (CEE&nbsp;9532) · Climate Hazards for Engineers (CEE&nbsp;9528) · Computational Tools for Civil Engineers (CEE&nbsp;2219B) · Foundations of Engineering Practice (ES1050)</p>
         </div>
       </article>
       <article class="entry">
@@ -377,13 +498,15 @@ ul { margin: 0; padding: 0; list-style: none; }
         <div class="entry-body">
           <h3 class="entry-title">Senior Process Executive (Programmer)</h3>
           <p class="entry-meta">Cognizant Technology Solutions, Poland</p>
+          <p class="entry-detail">Analytical review work for a global technology client: assessing cases against detailed policy guidelines, escalating complex issues, and maintaining high accuracy and quality while meeting service-level targets.</p>
         </div>
       </article>
       <article class="entry">
         <span class="date">2018 – 2019</span>
         <div class="entry-body">
           <h3 class="entry-title">Assistant Lecturer</h3>
-          <p class="entry-meta">Wolaita Sodo University, Ethiopia</p>
+          <p class="entry-meta">Department of Mechanical Engineering, Wolaita Sodo University, Ethiopia</p>
+          <p class="entry-detail">Assisted in teaching Engineering Thermodynamics and Heat Transfer, supervised and advised students on their coursework and study skills, and took part in departmental research, workshop practice and community service.</p>
         </div>
       </article>
     </div>
@@ -505,6 +628,773 @@ ul { margin: 0; padding: 0; list-style: none; }
     var show = function () { if (img.naturalWidth > 0) { fig.hidden = false; } };
     if (img.complete) { show(); } else { img.addEventListener('load', show); }
   }
+})();
+</script>
+<script>
+/* Research drawings under the name. Three animated drawings, one per research theme, take turns every 9 s and can be
+   picked with the buttons under the panel. They are made-up illustrations in the site's greens, not project data or
+   figures from the thesis: an office whose windows, shading fins and roof panels change with the warming level; climate curves feeding a surrogate model that predicts the energy use of three designs; and a data center
+   with its cooling plant, each part pointed out in turn. Each drawing is centred in a design space 400 units tall:
+   600 units wide on narrow panels and 1200 on wide ones, where labels and callouts are added. Motion stops off
+   screen, in hidden tabs and when paused; reduced-motion users start paused. */
+(function () {
+  var fig = document.getElementById('reel');
+  var art = document.getElementById('art');
+  if (!fig || !art || !window.requestAnimationFrame || !window.matchMedia) return;
+  var tabsBox = document.getElementById('reel-tabs');
+  var tabs = tabsBox.querySelectorAll('.tab');
+  var toggle = document.getElementById('reel-toggle');
+  var note = document.getElementById('reel-note');
+  var drafting = art.querySelector('.drafting');
+  var canvases = art.querySelectorAll('.scene');
+  var NOTES = [
+    'An office adapts its windows, shading fins and rooftop solar panels as the climate warms.',
+    'Climate data feed a surrogate model that predicts the energy use of building design options.',
+    'A data center as one system: the IT hall, air-side economizer, dry coolers, chillers and cooling tower.'
+  ];
+  var DWELL = 9000, FADE = 1200, TAU = Math.PI * 2, C = 0.8660254;
+  var SANS = '"IBM Plex Sans", "Helvetica Neue", Arial, sans-serif';
+  var playing = !window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  var held = false, onScreen = true, current = 0, prev = -1, fadeEnd = 0, elapsed = 0, clock = 4, last = 0, rafId = 0;
+  var pal = {}, view = { w: 1, h: 1, k: 1, u: 1, lw: 1, wide: false }, dpr = 1;
+
+  // Colours come from the page's tokens, so the drawings follow the light and dark themes.
+  function readPalette() {
+    var cs = window.getComputedStyle(art);
+    var names = ['line', 'soft', 'faint', 'grid', 'top', 'right', 'left', 'roof', 'canopy', 'glass', 'pv', 'metal-t',
+      'metal-r', 'metal-l', 'deep', 'rack', 'blade', 'accent', 'cold', 'hot', 'led'];
+    pal = {
+      fig: cs.getPropertyValue('--fig').trim(), ink: cs.getPropertyValue('--ink').trim(),
+      ink2: cs.getPropertyValue('--ink-2').trim(), ink3: cs.getPropertyValue('--ink-3').trim()
+    };
+    for (var i = 0; i < names.length; i++) pal[names[i].replace('-', '')] = cs.getPropertyValue('--art-' + names[i]).trim();
+  }
+  function rgb(hex) {
+    var h = hex.replace('#', '');
+    if (h.length === 3) h = h[0] + h[0] + h[1] + h[1] + h[2] + h[2];
+    var n = parseInt(h, 16);
+    return [(n >> 16) & 255, (n >> 8) & 255, n & 255];
+  }
+  function mix(a, b, t) {
+    var x = rgb(a), y = rgb(b), o = [];
+    for (var i = 0; i < 3; i++) o.push(Math.round(x[i] + (y[i] - x[i]) * t));
+    return 'rgb(' + o.join(',') + ')';
+  }
+  function rgba(hex, a) { return 'rgba(' + rgb(hex).join(',') + ',' + a + ')'; }
+
+  // Isometric drawing: x runs down to the right, y down to the left, z up; s is the size of one grid tile.
+  function iso(s, ox, oy) {
+    return function (x, y, z) { return [ox + (x - y) * C * s, oy + (x + y) * 0.5 * s - (z || 0) * s]; };
+  }
+  function path(ctx, P, pts, close) {
+    ctx.beginPath();
+    for (var i = 0; i < pts.length; i++) {
+      var p = P(pts[i][0], pts[i][1], pts[i][2]);
+      if (i) ctx.lineTo(p[0], p[1]); else ctx.moveTo(p[0], p[1]);
+    }
+    if (close) ctx.closePath();
+  }
+  function face(ctx, P, pts, fill, edge) {
+    path(ctx, P, pts, true);
+    if (fill) { ctx.fillStyle = fill; ctx.fill(); }
+    if (edge) { ctx.strokeStyle = edge; ctx.stroke(); }
+  }
+  // A box seen from the viewer's side: its +y face on the left, its +x face on the right, and its top.
+  function box(ctx, P, x0, x1, y0, y1, z0, z1, left, right, top, edge) {
+    face(ctx, P, [[x0, y1, z0], [x1, y1, z0], [x1, y1, z1], [x0, y1, z1]], left, edge);
+    face(ctx, P, [[x1, y0, z0], [x1, y1, z0], [x1, y1, z1], [x1, y0, z1]], right, edge);
+    face(ctx, P, [[x0, y0, z1], [x1, y0, z1], [x1, y1, z1], [x0, y1, z1]], top, edge);
+  }
+  // The outline of a box as seen, used to point a part out.
+  function silhouette(ctx, P, x0, x1, y0, y1, z0, z1) {
+    path(ctx, P, [[x0, y1, z0], [x1, y1, z0], [x1, y0, z0], [x1, y0, z1], [x0, y0, z1], [x0, y1, z1]], true);
+    ctx.stroke();
+  }
+  function line(ctx, a, b) { ctx.moveTo(a[0], a[1]); ctx.lineTo(b[0], b[1]); }
+  // A fan on a flat top: its ring and three turning blades.
+  function fan(ctx, P, s, x, y, z, r, angle) {
+    var c = P(x, y, z), rx = 1.2247 * r * s, ry = 0.7071 * r * s;
+    ctx.beginPath();
+    ctx.ellipse(c[0], c[1], rx, ry, 0, 0, TAU);
+    ctx.fillStyle = pal.deep;
+    ctx.fill();
+    ctx.strokeStyle = pal.line;
+    ctx.stroke();
+    ctx.beginPath();
+    for (var b = 0; b < 3; b++) {
+      var q = angle + b * TAU / 3;
+      ctx.moveTo(c[0], c[1]);
+      ctx.lineTo(c[0] + Math.cos(q) * rx * 0.82, c[1] + Math.sin(q) * ry * 0.82);
+    }
+    ctx.strokeStyle = pal.blade;
+    ctx.stroke();
+  }
+  // The sun crossing a dashed arc once every 9 s.
+  function sun(ctx, t, cx, cy, rx, ry) {
+    ctx.setLineDash([3 * view.u, 6 * view.u]);
+    ctx.strokeStyle = pal.soft;
+    ctx.beginPath();
+    ctx.ellipse(cx, cy, rx, ry, 0, Math.PI * 1.12, Math.PI * 1.88);
+    ctx.stroke();
+    ctx.setLineDash([]);
+    var a = Math.PI * (1.12 + 0.76 * ((t / 9) % 1)), x = cx + rx * Math.cos(a), y = cy + ry * Math.sin(a);
+    var g = ctx.createRadialGradient(x, y, 0, x, y, 20);
+    g.addColorStop(0, rgba(pal.hot, 0.45));
+    g.addColorStop(1, rgba(pal.hot, 0));
+    ctx.fillStyle = g;
+    ctx.beginPath();
+    ctx.arc(x, y, 20, 0, TAU);
+    ctx.fill();
+    ctx.fillStyle = pal.hot;
+    ctx.beginPath();
+    ctx.arc(x, y, 8, 0, TAU);
+    ctx.fill();
+  }
+  // Text sized in screen pixels, whatever the drawing's scale.
+  function text(ctx, str, x, y, px, family, weight, color, align) {
+    ctx.font = weight + ' ' + (px * view.u).toFixed(2) + 'px ' + family;
+    ctx.fillStyle = color;
+    ctx.textAlign = align || 'left';
+    ctx.textBaseline = 'alphabetic';
+    ctx.fillText(str, x, y);
+  }
+  // A small capitalised heading, set like the page's card labels.
+  function caps(ctx, str, x, y, align) {
+    var spaced = 'letterSpacing' in ctx;
+    if (spaced) ctx.letterSpacing = (1.3 * view.u).toFixed(2) + 'px';
+    text(ctx, str, x, y, 10.5, SANS, 600, pal.ink3, align);
+    if (spaced) ctx.letterSpacing = '0px';
+  }
+  // A callout set like a technical drawing: a ringed pin on the part, a hairline leader that bends once at a column
+  // shared by every callout on that side, then a short level run into the label, with the value (if any) under it.
+  function callout(ctx, side, row, p, label, value, on) {
+    var u = view.u, elbow = side * 300, end = side * 346, x = side * 354, align = side < 0 ? 'right' : 'left';
+    ctx.beginPath();
+    ctx.moveTo(p[0], p[1]);
+    ctx.lineTo(elbow, row);
+    ctx.lineTo(end, row);
+    ctx.strokeStyle = on ? pal.accent : pal.soft;
+    ctx.lineWidth = view.lw * (on ? 1.5 : 1);
+    ctx.stroke();
+    ctx.lineWidth = view.lw;
+    ctx.beginPath();
+    ctx.arc(p[0], p[1], 5.5 * u, 0, TAU);
+    ctx.fillStyle = rgba(pal.fig, 0.85);
+    ctx.fill();
+    ctx.beginPath();
+    ctx.arc(p[0], p[1], 3.6 * u, 0, TAU);
+    ctx.strokeStyle = on ? pal.accent : pal.line;
+    ctx.stroke();
+    ctx.beginPath();
+    ctx.arc(p[0], p[1], 1.6 * u, 0, TAU);
+    ctx.fillStyle = on ? pal.accent : pal.line;
+    ctx.fill();
+    text(ctx, label, x, row + 4.5 * u, 12.5, SANS, on ? 600 : 500, on ? pal.ink : pal.ink2, align);
+    if (value) text(ctx, value, x, row + 25 * u, 16, SANS, 600, pal.ink, align);
+  }
+
+  // Theme 1: an office on a planted plaza, redesigned for four warming levels. Each level has its own
+  // window-to-wall ratio, shading-fin depth and number of roof PV panels; wide panels label all three.
+  function adaptiveScene() {
+    var s = 19, P = iso(s, -26, -20);
+    var BX = 9, BY = 5.5, GF = 1.3, FL = 1.05, NF = 5, TOP = GF + FL * NF, FIN = 0.9, PANELS = 12;
+    var V = [
+      { warm: 0.5, wwr: 0.7, fin: 0, pv: 0 },
+      { warm: 1.5, wwr: 0.58, fin: 0.45, pv: 0.42 },
+      { warm: 2.5, wwr: 0.47, fin: 0.8, pv: 0.75 },
+      { warm: 3.5, wwr: 0.4, fin: 1, pv: 1 }
+    ];
+    var HOLD = 1.6, MOVE = 0.8, PER = HOLD + MOVE;
+    var trees = [[-1.5, 2.3], [-1.3, 6.4], [2.6, 7.1], [6.2, 7.2], [10.4, 6.2], [10.6, 2.0]];
+    function ease(u) { return u < 0.5 ? 2 * u * u : 1 - 2 * (1 - u) * (1 - u); }
+    function design(t) {
+      var i = Math.floor(t / PER) % V.length, f = t % PER, a = V[i], b = V[(i + 1) % V.length], o = {};
+      var u = f > HOLD ? ease((f - HOLD) / MOVE) : 0;
+      for (var key in a) o[key] = a[key] + (b[key] - a[key]) * u;
+      return o;
+    }
+    function tree(ctx, x, y) {
+      var b = P(x, y, 0), c = P(x, y, 1.25);
+      ctx.beginPath();
+      line(ctx, b, c);
+      ctx.strokeStyle = pal.soft;
+      ctx.stroke();
+      ctx.beginPath();
+      ctx.arc(c[0], c[1], 0.6 * s, 0, TAU);
+      ctx.fillStyle = pal.canopy;
+      ctx.fill();
+      ctx.strokeStyle = pal.line;
+      ctx.stroke();
+    }
+    function callouts(ctx, d, dep) {
+      var u = view.u, x0 = -560, x1 = -400, sy = 26, f = (d.warm - 0.5) / 3, mx = x0 + f * (x1 - x0), i;
+      // The warming level this design is tuned for, on a scale of the four levels
+      caps(ctx, 'WARMING LEVEL', x0, -58);
+      text(ctx, '+' + d.warm.toFixed(1) + ' °C', x0, -58 + 32 * u, 24, SANS, 600, pal.ink);
+      ctx.beginPath();
+      ctx.moveTo(x0, sy);
+      ctx.lineTo(x1, sy);
+      for (i = 0; i < 4; i++) {
+        var tx = x0 + i / 3 * (x1 - x0);
+        ctx.moveTo(tx, sy - 3.5 * u);
+        ctx.lineTo(tx, sy + 3.5 * u);
+      }
+      ctx.strokeStyle = pal.soft;
+      ctx.stroke();
+      for (i = 0; i < 4; i++) text(ctx, '+' + V[i].warm.toFixed(1), x0 + i / 3 * (x1 - x0), sy + 19 * u, 10.5, SANS, 500, pal.ink3, 'center');
+      ctx.beginPath();
+      ctx.arc(mx, sy, 6.5 * u, 0, TAU);
+      ctx.fillStyle = rgba(pal.fig, 0.9);
+      ctx.fill();
+      ctx.beginPath();
+      ctx.arc(mx, sy, 4.5 * u, 0, TAU);
+      ctx.fillStyle = mix(pal.cold, pal.hot, f);
+      ctx.fill();
+      // What the design changes, pinned to the parts that change
+      callout(ctx, 1, -84, P(8.0, 1.0, TOP), 'Roof PV panels', Math.round(d.pv * PANELS) + ' of ' + PANELS, false);
+      callout(ctx, 1, -12, P(BX, 0.65, GF + 3.5 * FL), 'Window-to-wall ratio', d.wwr.toFixed(2), false);
+      callout(ctx, 1, 60, P(BX + dep * 0.5, 1.1, GF + 1.6 * FL), 'Shading fin depth', (d.fin * FIN).toFixed(2) + ' m', false);
+    }
+    function draw(ctx, t) {
+      var d = design(t), i, j, f, z;
+      sun(ctx, t, 10, -60, 200, 105);
+      face(ctx, P, [[-2.4, -2, 0], [11.4, -2, 0], [11.4, 7.8, 0], [-2.4, 7.8, 0]], pal.faint, pal.soft);
+      ctx.beginPath();
+      for (i = -2; i <= 11; i++) line(ctx, P(i, -2), P(i, 7.8));
+      for (j = -1; j <= 7; j++) line(ctx, P(-2.4, j), P(11.4, j));
+      ctx.strokeStyle = pal.grid;
+      ctx.stroke();
+      for (i = 0; i < 2; i++) tree(ctx, trees[i][0], trees[i][1]);
+      // Glazed ground floor, then the timber floors above it
+      box(ctx, P, 0, BX, 0, BY, 0, GF, pal.glass, pal.glass, pal.glass, pal.line);
+      ctx.beginPath();
+      for (i = 1; i < BX; i++) line(ctx, P(i, BY, 0), P(i, BY, GF));
+      for (j = 1; j < 5; j++) line(ctx, P(BX, j * 1.1, 0), P(BX, j * 1.1, GF));
+      ctx.strokeStyle = pal.soft;
+      ctx.stroke();
+      box(ctx, P, 0, BX, 0, BY, GF, TOP, pal.left, pal.right, pal.roof, pal.line);
+      ctx.beginPath();
+      for (f = 1; f < NF; f++) {
+        z = GF + f * FL;
+        line(ctx, P(0, BY, z), P(BX, BY, z));
+        line(ctx, P(BX, 0, z), P(BX, BY, z));
+      }
+      for (i = 1; i < BX; i++) line(ctx, P(i, BY, GF), P(i, BY, TOP));
+      for (j = 1; j < 5; j++) line(ctx, P(BX, j * 1.1, GF), P(BX, j * 1.1, TOP));
+      ctx.strokeStyle = pal.soft;
+      ctx.stroke();
+      // Windows sized by the window-to-wall ratio
+      var h = d.wwr * (FL - 0.18);
+      ctx.fillStyle = pal.glass;
+      for (f = 0; f < NF; f++) {
+        var z0 = GF + (f + 0.5) * FL - h / 2, z1 = z0 + h;
+        for (i = 0; i < BX; i++) {
+          path(ctx, P, [[i + 0.2, BY, z0], [i + 0.8, BY, z0], [i + 0.8, BY, z1], [i + 0.2, BY, z1]], true);
+          ctx.fill();
+        }
+        for (j = 0; j < 5; j++) {
+          path(ctx, P, [[BX, j * 1.1 + 0.22, z0], [BX, j * 1.1 + 0.88, z0], [BX, j * 1.1 + 0.88, z1], [BX, j * 1.1 + 0.22, z1]], true);
+          ctx.fill();
+        }
+      }
+      // Roof PV panels on the green roof
+      var n = d.pv * PANELS;
+      for (i = 0; i < PANELS && i < n; i++) {
+        var px = 0.8 + (i % 4) * 2.0, py = 0.7 + Math.floor(i / 4) * 1.5;
+        ctx.globalAlpha = Math.min(1, n - i);
+        face(ctx, P, [[px, py, TOP], [px + 1.5, py, TOP], [px + 1.5, py + 1.05, TOP], [px, py + 1.05, TOP]], pal.pv, pal.line);
+      }
+      ctx.globalAlpha = 1;
+      // Shading fins on the sunny face
+      var dep = d.fin * 0.6;
+      if (dep > 0.02) {
+        for (j = 0; j <= 5; j++) {
+          var yb = Math.min(BY, j * 1.1);
+          face(ctx, P, [[BX, yb, GF + 0.08], [BX + dep, yb, GF + 0.08], [BX + dep, yb, TOP - 0.05], [BX, yb, TOP - 0.05]], pal.left, pal.line);
+        }
+      }
+      for (i = 2; i < trees.length; i++) tree(ctx, trees[i][0], trees[i][1]);
+      if (view.wide) callouts(ctx, d, dep);
+    }
+    return { draw: draw, step: function () {} };
+  }
+
+  // Theme 2: annual temperature curves for cooler and warmer climates are sampled by a sweeping line and run through
+  // a small neural network, which predicts the energy use of three building designs (bars; the shortest is best).
+  function surrogateScene() {
+    var NC = 9, NP = 61, LOAD = [0.86, 0.62, 0.38], WWR = [0.78, 0.52, 0.32], SPEED = 220;
+    var g, curves, layers, designs, pulses, scan = 0, spawnAcc = 0, built = null;
+    function build(wide) {
+      var k, i, j, l;
+      built = wide;
+      g = wide
+        ? { X0: -480, X1: -270, cols: [[4, -130, 46], [6, -40, 36], [6, 50, 36], [3, 140, 100]], bx: 300, bar: 140 }
+        : { X0: -286, X1: -120, cols: [[4, -60, 46], [6, 4, 36], [6, 68, 36], [3, 132, 96]], bx: 206, bar: 50 };
+      g.YT = -96;
+      g.YB = 74;
+      curves = [];
+      for (k = 0; k < NC; k++) {
+        var shift = (k - (NC - 1) / 2) * 1.15, pts = [];
+        for (i = 0; i < NP; i++) {
+          var d = i / (NP - 1);
+          var T = 8 - 14 * Math.cos(TAU * (d - 0.05)) + shift + 1.8 * Math.sin(23 * d + k * 2.1) * Math.sin(7 * d + k * 0.7);
+          pts.push({ x: g.X0 + d * (g.X1 - g.X0), y: g.YB - (T + 14) / 46 * (g.YB - g.YT) });
+        }
+        curves.push(pts);
+      }
+      layers = [];
+      for (l = 0; l < g.cols.length; l++) {
+        var layer = [], c = g.cols[l];
+        for (j = 0; j < c[0]; j++) layer.push({ x: c[1], y: (j - (c[0] - 1) / 2) * c[2], glow: 0 });
+        layers.push(layer);
+      }
+      designs = [];
+      for (j = 0; j < 3; j++) {
+        var y = layers[3][j].y, P = iso(8.5, g.bx - 5.5, y + 2.35), a = P(0, 2.5, 1.9);
+        designs.push({ P: P, y: y, anchor: { x: a[0], y: a[1] }, wwr: WWR[j], load: LOAD[j], glow: 0 });
+      }
+      pulses = [];
+      for (i = 0; i < 180; i++) step(1 / 60);
+    }
+    function sample(k, u) {
+      var f = u * (NP - 1), i = Math.min(NP - 2, Math.floor(f)), t = f - i, a = curves[k][i], b = curves[k][i + 1];
+      return { x: a.x + (b.x - a.x) * t, y: a.y + (b.y - a.y) * t };
+    }
+    function pick(arr) { return arr[Math.floor(Math.random() * arr.length)]; }
+    function step(dt) {
+      if (!designs) return;
+      var i, l, n;
+      scan = (scan + dt / 4.8) % 1;
+      spawnAcc += dt * 7;
+      while (spawnAcc >= 1) {
+        spawnAcc -= 1;
+        var j = Math.floor(Math.random() * 3);
+        pulses.push({
+          path: [sample(Math.floor(Math.random() * NC), scan), pick(layers[0]), pick(layers[1]), pick(layers[2]), layers[3][j], designs[j].anchor],
+          seg: 0, d: 0, j: j
+        });
+      }
+      for (l = 0; l < layers.length; l++) for (n = 0; n < layers[l].length; n++) layers[l][n].glow = Math.max(0, layers[l][n].glow - dt * 2.2);
+      for (n = 0; n < 3; n++) designs[n].glow = Math.max(0, designs[n].glow - dt * 1.6);
+      for (i = pulses.length - 1; i >= 0; i--) {
+        var p = pulses[i];
+        p.d += SPEED * dt;
+        while (p.seg < p.path.length - 1) {
+          var a = p.path[p.seg], b = p.path[p.seg + 1], len = Math.hypot(b.x - a.x, b.y - a.y);
+          if (p.d < len) break;
+          p.d -= len;
+          p.seg++;
+          if (p.seg < p.path.length - 1) p.path[p.seg].glow = 1;
+          else designs[p.j].glow = 1;
+        }
+        if (p.seg >= p.path.length - 1) pulses.splice(i, 1);
+      }
+    }
+    // A small office for each design option, its windows lighting up as a prediction arrives
+    function mini(ctx, D) {
+      var P = D.P, h = D.wwr * 0.72, f, i;
+      box(ctx, P, 0, 4, 0, 2.5, 0, 3.8, pal.left, pal.right, pal.top, pal.line);
+      ctx.fillStyle = D.glow > 0 ? mix(pal.glass, pal.accent, D.glow * 0.7) : pal.glass;
+      for (f = 0; f < 4; f++) {
+        var z0 = (f + 0.5) * 0.95 - h / 2, z1 = z0 + h;
+        for (i = 0; i < 4; i++) {
+          path(ctx, P, [[i + 0.2, 2.5, z0], [i + 0.8, 2.5, z0], [i + 0.8, 2.5, z1], [i + 0.2, 2.5, z1]], true);
+          ctx.fill();
+        }
+        for (i = 0; i < 2; i++) {
+          path(ctx, P, [[4, i * 1.25 + 0.25, z0], [4, i * 1.25 + 1.0, z0], [4, i * 1.25 + 1.0, z1], [4, i * 1.25 + 0.25, z1]], true);
+          ctx.fill();
+        }
+      }
+    }
+    function draw(ctx) {
+      if (built !== view.wide) build(view.wide);
+      var u = view.u, k, i, l, a, b, n;
+      if (view.wide) {
+        caps(ctx, 'CLIMATE SCENARIOS', (g.X0 + g.X1) / 2, -150, 'center');
+        caps(ctx, 'SURROGATE MODEL', (g.cols[0][1] + g.cols[3][1]) / 2, -150, 'center');
+        caps(ctx, 'PREDICTED ENERGY USE', g.bx + 15 + g.bar / 2, -150, 'center');
+        // Air temperature through one year, labelled in plain words; cooler climates in teal, warmer ones in amber
+        text(ctx, 'Jan', g.X0, g.YB + 24 * u, 10.5, SANS, 500, pal.ink3, 'left');
+        text(ctx, 'Jul', (g.X0 + g.X1) / 2, g.YB + 24 * u, 10.5, SANS, 500, pal.ink3, 'center');
+        text(ctx, 'Dec', g.X1, g.YB + 24 * u, 10.5, SANS, 500, pal.ink3, 'right');
+        text(ctx, 'Air temperature over a year', (g.X0 + g.X1) / 2, g.YB + 44 * u, 11.5, SANS, 500, pal.ink2, 'center');
+        var warm = sample(NC - 1, 0), cool = sample(0, 0);
+        text(ctx, 'warmer', g.X0 - 8, warm.y + 4 * u, 11, SANS, 600, mix(pal.hot, pal.ink, 0.35), 'right');
+        text(ctx, 'cooler', g.X0 - 8, cool.y + 4 * u, 11, SANS, 600, mix(pal.cold, pal.ink, 0.25), 'right');
+      }
+      ctx.beginPath();
+      ctx.moveTo(g.X0, g.YB + 8);
+      ctx.lineTo(g.X1, g.YB + 8);
+      ctx.strokeStyle = pal.soft;
+      ctx.stroke();
+      // Climate curves, cooler ones in teal through warmer ones in amber
+      ctx.lineWidth = view.lw * 1.3;
+      for (k = 0; k < NC; k++) {
+        ctx.strokeStyle = mix(pal.cold, pal.hot, k / (NC - 1));
+        ctx.beginPath();
+        for (i = 0; i < NP; i++) ctx[i ? 'lineTo' : 'moveTo'](curves[k][i].x, curves[k][i].y);
+        ctx.stroke();
+      }
+      ctx.lineWidth = view.lw;
+      // The sweep line and the samples it takes
+      var sx = g.X0 + scan * (g.X1 - g.X0);
+      ctx.setLineDash([3 * u, 4 * u]);
+      ctx.strokeStyle = pal.soft;
+      ctx.beginPath();
+      ctx.moveTo(sx, g.YT - 10);
+      ctx.lineTo(sx, g.YB + 8);
+      ctx.stroke();
+      ctx.setLineDash([]);
+      ctx.fillStyle = pal.line;
+      for (k = 0; k < NC; k++) {
+        var sp = sample(k, scan);
+        ctx.beginPath();
+        ctx.arc(sp.x, sp.y, 2.4 * u, 0, TAU);
+        ctx.fill();
+      }
+      // Network edges, then the pulses, then the nodes over them
+      ctx.strokeStyle = pal.faint;
+      ctx.beginPath();
+      for (l = 0; l < layers.length - 1; l++) {
+        for (a = 0; a < layers[l].length; a++) {
+          for (b = 0; b < layers[l + 1].length; b++) {
+            ctx.moveTo(layers[l][a].x, layers[l][a].y);
+            ctx.lineTo(layers[l + 1][b].x, layers[l + 1][b].y);
+          }
+        }
+      }
+      for (a = 0; a < 3; a++) {
+        ctx.moveTo(layers[3][a].x, layers[3][a].y);
+        ctx.lineTo(designs[a].anchor.x, designs[a].anchor.y);
+      }
+      ctx.stroke();
+      for (i = 0; i < pulses.length; i++) {
+        var p = pulses[i], A = p.path[p.seg], Z = p.path[p.seg + 1];
+        var len = Math.hypot(Z.x - A.x, Z.y - A.y) || 1, f = p.d / len, tail = Math.min(p.d, 18) / len;
+        var x = A.x + (Z.x - A.x) * f, y = A.y + (Z.y - A.y) * f;
+        ctx.globalAlpha = 0.5;
+        ctx.strokeStyle = pal.accent;
+        ctx.lineWidth = view.lw * 2;
+        ctx.beginPath();
+        ctx.moveTo(x - (Z.x - A.x) * tail, y - (Z.y - A.y) * tail);
+        ctx.lineTo(x, y);
+        ctx.stroke();
+        ctx.globalAlpha = 1;
+        ctx.fillStyle = pal.accent;
+        ctx.beginPath();
+        ctx.arc(x, y, 2.6 * u, 0, TAU);
+        ctx.fill();
+      }
+      ctx.lineWidth = view.lw;
+      ctx.strokeStyle = pal.line;
+      for (l = 0; l < layers.length; l++) {
+        for (a = 0; a < layers[l].length; a++) {
+          n = layers[l][a];
+          ctx.beginPath();
+          ctx.arc(n.x, n.y, 7, 0, TAU);
+          ctx.fillStyle = n.glow > 0 ? mix(pal.fig, pal.accent, n.glow * 0.85) : pal.fig;
+          ctx.fill();
+          ctx.stroke();
+        }
+      }
+      // Each design and its predicted energy use; the shortest bar is the best design
+      for (a = 0; a < 3; a++) {
+        var D = designs[a], bx0 = g.bx + 30;
+        mini(ctx, D);
+        ctx.fillStyle = pal.faint;
+        ctx.fillRect(bx0, D.y - 3, g.bar, 6);
+        ctx.globalAlpha = 0.75 + 0.25 * D.glow;
+        ctx.fillStyle = a === 2 ? pal.accent : pal.soft;
+        ctx.fillRect(bx0, D.y - 3, g.bar * D.load, 6);
+        ctx.globalAlpha = 1;
+      }
+    }
+    return { draw: draw, step: step };
+  }
+
+  // Theme 3: a data center as a building and a cooling plant. Cool supply water (teal) and warm return water
+  // (amber) flow between the chillers, the hall and the cooling tower; fans turn and the tower steams. One part at a
+  // time is outlined, and wide panels name every part with a callout.
+  function dataCenterScene() {
+    var s = 19, P = iso(s, -68, -106), i, j;
+    var units = [], leds = [];
+    for (i = 0; i < 4; i++) for (j = 0; j < 2; j++) units.push([0.8 + i * 2.55, 0.9 + j * 2.75]);
+    units.sort(function (a, b) { return a[0] + a[1] - b[0] - b[1]; });
+    for (i = 0; i < 11; i++) for (j = 0; j < 5; j++) leds.push([3.77 + i * 0.62, 0.62 + j * 0.3, ((i * 7 + j * 13) % 17) / 17]);
+    var pipes = [
+      { pts: [[14, 2.0, 0.55], [12.4, 2.0, 0.55], [12.4, 5.3, 0.55], [11, 5.3, 0.55]], cool: true },
+      { pts: [[11, 4.7, 0.95], [12.0, 4.7, 0.95], [12.0, 1.4, 0.95], [14, 1.4, 0.95]], cool: false },
+      { pts: [[15.6, 5.0, 0.6], [15.6, 6.4, 0.6]], cool: false },
+      { pts: [[16.6, 6.4, 0.35], [16.6, 5.0, 0.35]], cool: true }
+    ];
+    var parts = [
+      { name: 'Dry coolers', side: -1, row: -108, at: [1.85, 5.35, 2.85], shape: function (ctx) { silhouette(ctx, P, 0.8, 2.9, 0.9, 2.6, 2.6, 3.1); } },
+      { name: 'Air-side economizer', side: -1, row: -56, at: [1.6, 6.5, 1.75], shape: function (ctx) { path(ctx, P, [[0.5, 6.5, 1.15], [2.7, 6.5, 1.15], [2.7, 6.5, 2.35], [0.5, 6.5, 2.35]], true); ctx.stroke(); } },
+      { name: 'IT hall', side: -1, row: -4, at: [4.6, 6.5, 0.9], shape: function (ctx) { path(ctx, P, [[3.3, 6.5, 0.35], [10.4, 6.5, 0.35], [10.4, 6.5, 2.15], [3.3, 6.5, 2.15]], true); ctx.stroke(); } },
+      { name: 'Chilled-water loop', side: 1, row: -60, at: [12.4, 3.0, 0.55], shape: function (ctx) { path(ctx, P, pipes[0].pts, false); ctx.stroke(); path(ctx, P, pipes[1].pts, false); ctx.stroke(); } },
+      { name: 'Chillers', side: 1, row: 20, at: [17.6, 1.5, 0.65], shape: function (ctx) { silhouette(ctx, P, 14, 17.6, 0.6, 2.4, 0, 1.25); silhouette(ctx, P, 14, 17.6, 3.2, 5.0, 0, 1.25); } },
+      { name: 'Cooling tower', side: 1, row: 100, at: [17.2, 7.8, 1.2], shape: function (ctx) { silhouette(ctx, P, 13.8, 17.2, 6.4, 9.2, 0, 2.3); } }
+    ];
+    function pipe(ctx, p, t) {
+      path(ctx, P, p.pts, false);
+      ctx.lineWidth = view.lw * 4.6;
+      ctx.strokeStyle = pal.line;
+      ctx.stroke();
+      ctx.lineWidth = view.lw * 3;
+      ctx.strokeStyle = pal.metalt;
+      ctx.stroke();
+      ctx.lineWidth = view.lw * 1.8;
+      ctx.strokeStyle = p.cool ? pal.cold : pal.hot;
+      ctx.setLineDash([6 * view.u, 6 * view.u]);
+      ctx.lineDashOffset = -t * 26 * view.u;
+      ctx.stroke();
+      ctx.setLineDash([]);
+      ctx.lineDashOffset = 0;
+      ctx.lineWidth = view.lw;
+    }
+    function chiller(ctx, y0, t) {
+      box(ctx, P, 14, 17.6, y0, y0 + 1.8, 0, 1.25, pal.metall, pal.metalr, pal.metalt, pal.line);
+      ctx.beginPath();
+      for (var x = 14.3; x < 17.5; x += 0.3) line(ctx, P(x, y0 + 1.8, 0.15), P(x, y0 + 1.8, 1.1));
+      ctx.strokeStyle = pal.soft;
+      ctx.stroke();
+      for (var f = 0; f < 3; f++) fan(ctx, P, s, 14.6 + f * 1.2, y0 + 0.9, 1.25, 0.38, t * 5 + f + y0);
+    }
+    function tower(ctx, t) {
+      box(ctx, P, 13.8, 17.2, 6.4, 9.2, 0, 2.3, pal.metall, pal.metalr, pal.metalt, pal.line);
+      ctx.beginPath();
+      for (var z = 0.3; z < 1.3; z += 0.2) {
+        line(ctx, P(14.0, 9.2, z), P(17.0, 9.2, z));
+        line(ctx, P(17.2, 6.6, z), P(17.2, 9.0, z));
+      }
+      ctx.strokeStyle = pal.soft;
+      ctx.stroke();
+      var b = P(15.5, 7.8, 2.3), c = P(15.5, 7.8, 2.75), rx = 1.2247 * 0.95 * s, ry = 0.7071 * 0.95 * s;
+      ctx.beginPath();
+      ctx.ellipse(b[0], b[1], rx, ry, 0, 0, Math.PI);
+      ctx.lineTo(c[0] - rx, c[1]);
+      ctx.ellipse(c[0], c[1], rx, ry, 0, Math.PI, TAU);
+      ctx.closePath();
+      ctx.fillStyle = pal.metalr;
+      ctx.fill();
+      ctx.strokeStyle = pal.line;
+      ctx.stroke();
+      fan(ctx, P, s, 15.5, 7.8, 2.75, 0.95, t * 3);
+    }
+    function plume(ctx, t) {
+      ctx.fillStyle = pal.soft;
+      for (var i = 0; i < 16; i++) {
+        var q = (t * 0.2 + i / 16) % 1, p = P(15.5 + q * 1.5, 7.8 - q * 0.5, 2.9 + q * 3.1);
+        ctx.globalAlpha = 0.9 * Math.min(1, q * 5) * (1 - q);
+        ctx.beginPath();
+        ctx.arc(p[0], p[1], (0.3 + q * 0.8) * s * 0.55, 0, TAU);
+        ctx.fill();
+      }
+      ctx.globalAlpha = 1;
+    }
+    function draw(ctx, t) {
+      var active = Math.floor(t / 1.6) % parts.length, i, j, z;
+      face(ctx, P, [[-1.2, -1.2, 0], [18.4, -1.2, 0], [18.4, 10.2, 0], [-1.2, 10.2, 0]], pal.faint, pal.soft);
+      // The hall, with its IT room seen through a cutaway in the front wall
+      box(ctx, P, 0, 11, 0, 6.5, 0, 2.6, pal.left, pal.right, pal.top, pal.line);
+      face(ctx, P, [[3.3, 6.5, 0.35], [10.4, 6.5, 0.35], [10.4, 6.5, 2.15], [3.3, 6.5, 2.15]], pal.deep, pal.line);
+      ctx.fillStyle = pal.rack;
+      for (i = 0; i < 11; i++) {
+        var r0 = 3.45 + i * 0.62;
+        path(ctx, P, [[r0, 6.5, 0.45], [r0 + 0.44, 6.5, 0.45], [r0 + 0.44, 6.5, 2.0], [r0, 6.5, 2.0]], true);
+        ctx.fill();
+      }
+      for (i = 0; i < leds.length; i++) {
+        var L = leds[i], lp = P(L[0], 6.5, L[1]);
+        ctx.globalAlpha = L[2] < 0.5 || Math.sin(t * (2 + L[2] * 9) + L[2] * 40) > -0.3 ? 1 : 0.25;
+        ctx.fillStyle = L[2] < 0.15 ? pal.cold : pal.led;
+        ctx.fillRect(lp[0] - 1.1 * view.u, lp[1] - 1.1 * view.u, 2.2 * view.u, 2.2 * view.u);
+      }
+      ctx.globalAlpha = 1;
+      // Air-side economizer louvers, and a door on the plant side
+      face(ctx, P, [[0.5, 6.5, 1.15], [2.7, 6.5, 1.15], [2.7, 6.5, 2.35], [0.5, 6.5, 2.35]], pal.right, pal.line);
+      ctx.beginPath();
+      for (j = 1; j < 7; j++) {
+        z = 1.15 + j * 0.17;
+        line(ctx, P(0.5, 6.5, z), P(2.7, 6.5, z));
+      }
+      ctx.strokeStyle = pal.soft;
+      ctx.stroke();
+      face(ctx, P, [[11, 0.6, 0], [11, 1.4, 0], [11, 1.4, 1.1], [11, 0.6, 1.1]], pal.left, pal.line);
+      // Dry coolers on the roof
+      for (i = 0; i < units.length; i++) {
+        var ux = units[i][0], uy = units[i][1];
+        box(ctx, P, ux, ux + 2.1, uy, uy + 1.7, 2.6, 3.1, pal.metall, pal.metalr, pal.metalt, pal.line);
+        fan(ctx, P, s, ux + 0.55, uy + 0.85, 3.1, 0.36, t * 6 + ux);
+        fan(ctx, P, s, ux + 1.55, uy + 0.85, 3.1, 0.36, t * 6 + ux + 1);
+      }
+      // The plant, back to front
+      pipe(ctx, pipes[0], t);
+      pipe(ctx, pipes[1], t);
+      chiller(ctx, 0.6, t);
+      chiller(ctx, 3.2, t);
+      pipe(ctx, pipes[2], t);
+      pipe(ctx, pipes[3], t);
+      tower(ctx, t);
+      plume(ctx, t);
+      // Point out one part at a time
+      ctx.lineWidth = view.lw * 2.2;
+      ctx.strokeStyle = pal.accent;
+      parts[active].shape(ctx);
+      ctx.lineWidth = view.lw;
+      if (!view.wide) return;
+      // Every part named in its own callout; the part being pointed out is drawn last, in the accent colour
+      for (i = 0; i <= parts.length; i++) {
+        var n = i < parts.length ? i : active, pt = parts[n];
+        if (i < parts.length && i === active) continue;
+        callout(ctx, pt.side, pt.row, P(pt.at[0], pt.at[1], pt.at[2]), pt.name, '', n === active);
+      }
+    }
+    return { draw: draw, step: function () {} };
+  }
+
+  var scenes = [adaptiveScene(), surrogateScene(), dataCenterScene()];
+  var ctxs = [];
+  for (var c = 0; c < canvases.length; c++) ctxs.push(canvases[c].getContext('2d'));
+  if (!ctxs[0]) return;
+
+  // Faint isometric drafting grid behind the drawings, fading out towards the panel's edges.
+  function drawDrafting() {
+    var W = view.w, H = view.h, ctx = drafting.getContext('2d'), g = 24, m = 0.57735;
+    ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+    ctx.clearRect(0, 0, W, H);
+    ctx.beginPath();
+    for (var y = -Math.ceil(W * m / g) * g; y < H + W * m; y += g) {
+      ctx.moveTo(0, y);
+      ctx.lineTo(W, y + W * m);
+      ctx.moveTo(0, y);
+      ctx.lineTo(W, y - W * m);
+    }
+    ctx.strokeStyle = pal.grid;
+    ctx.lineWidth = 1;
+    ctx.stroke();
+    ctx.save();
+    ctx.translate(W / 2, H / 2);
+    ctx.scale(1, H / W);
+    var fade = ctx.createRadialGradient(0, 0, W * 0.22, 0, 0, W * 0.62);
+    fade.addColorStop(0, rgba(pal.fig, 0));
+    fade.addColorStop(1, rgba(pal.fig, 1));
+    ctx.fillStyle = fade;
+    ctx.fillRect(-W / 2, -W / 2, W, W);
+    ctx.restore();
+  }
+  function paint(i) {
+    var ctx = ctxs[i], cv = canvases[i], k = view.k * dpr;
+    ctx.setTransform(1, 0, 0, 1, 0, 0);
+    ctx.clearRect(0, 0, cv.width, cv.height);
+    ctx.setTransform(k, 0, 0, k, cv.width / 2, cv.height / 2);
+    ctx.globalAlpha = 1;
+    ctx.setLineDash([]);
+    ctx.lineWidth = view.lw;
+    ctx.lineJoin = 'round';
+    ctx.lineCap = 'round';
+    scenes[i].draw(ctx, clock);
+  }
+  // Wide panels show 1200 design units across, with labels; narrower ones show the central 600.
+  function layout() {
+    var W = art.clientWidth, H = art.clientHeight, i;
+    if (W < 2 || H < 2) return;
+    dpr = Math.min(window.devicePixelRatio || 1, 2);
+    var wide = W / H >= 2.4, k = Math.min(W / (wide ? 1200 : 600), H / 400);
+    view = { w: W, h: H, k: k, u: 1 / k, lw: 1 / Math.min(1, k), wide: wide };
+    var all = [drafting].concat([].slice.call(canvases)), bw = Math.round(W * dpr), bh = Math.round(H * dpr);
+    for (i = 0; i < all.length; i++) {
+      if (all[i].width !== bw) all[i].width = bw;
+      if (all[i].height !== bh) all[i].height = bh;
+    }
+    drawDrafting();
+    for (i = 0; i < canvases.length; i++) paint(i);
+  }
+
+  // The caption is announced only while the drawings are not changing on their own.
+  function updateLive() { note.setAttribute('aria-live', playing && !held ? 'off' : 'polite'); }
+  function progress() { tabs[current].style.setProperty('--p', playing ? String(Math.min(1, elapsed / DWELL)) : '1'); }
+  function go(i) {
+    if (i !== current) {
+      prev = current;
+      current = i;
+      fadeEnd = performance.now() + FADE;
+      for (var j = 0; j < canvases.length; j++) {
+        var on = j === i;
+        canvases[j].classList.toggle('is-on', on);
+        if (on) canvases[j].removeAttribute('aria-hidden'); else canvases[j].setAttribute('aria-hidden', 'true');
+        tabs[j].classList.toggle('is-on', on);
+        if (on) tabs[j].setAttribute('aria-current', 'true'); else tabs[j].removeAttribute('aria-current');
+        tabs[j].style.setProperty('--p', '0');
+      }
+      note.textContent = NOTES[i];
+      paint(i);
+    }
+    elapsed = 0;
+    progress();
+  }
+  function frame(now) {
+    rafId = 0;
+    var dt = last ? Math.min(now - last, 80) : 16;
+    last = now;
+    if (!playing) return;
+    clock += dt / 1000;
+    if (!held) {
+      elapsed += dt;
+      if (elapsed >= DWELL) go((current + 1) % canvases.length);
+    }
+    progress();
+    for (var i = 0; i < canvases.length; i++) {
+      if (i === current || (i === prev && now < fadeEnd)) {
+        scenes[i].step(dt / 1000);
+        paint(i);
+      }
+    }
+    if (onScreen && !document.hidden) rafId = window.requestAnimationFrame(frame);
+  }
+  function kick() {
+    if (!rafId && playing && onScreen && !document.hidden) {
+      last = 0;
+      rafId = window.requestAnimationFrame(frame);
+    }
+  }
+  function setPlaying(on) {
+    playing = on;
+    fig.classList.toggle('is-paused', !on);
+    toggle.setAttribute('aria-label', on ? 'Pause the animation' : 'Play the animation');
+    updateLive();
+    progress();
+    if (on) kick(); else paint(current);
+  }
+  function retheme() {
+    readPalette();
+    layout();
+  }
+
+  readPalette();
+  tabsBox.hidden = false;
+  layout();
+  setPlaying(playing);
+  for (var t = 0; t < tabs.length; t++) {
+    tabs[t].addEventListener('click', (function (i) { return function () { go(i); kick(); }; })(t));
+  }
+  toggle.addEventListener('click', function () { setPlaying(!playing); });
+  fig.addEventListener('mouseenter', function () { held = true; updateLive(); });
+  fig.addEventListener('mouseleave', function () { held = fig.contains(document.activeElement); updateLive(); });
+  fig.addEventListener('focusin', function () { held = true; updateLive(); });
+  fig.addEventListener('focusout', function (e) {
+    if (!e.relatedTarget || !fig.contains(e.relatedTarget)) { held = fig.matches(':hover'); updateLive(); }
+  });
+  document.addEventListener('visibilitychange', kick);
+  if (window.IntersectionObserver) {
+    new IntersectionObserver(function (entries) { onScreen = entries[0].isIntersecting; kick(); }).observe(fig);
+  }
+  if (window.ResizeObserver) new ResizeObserver(layout).observe(art); else window.addEventListener('resize', layout);
+  if (document.fonts && document.fonts.ready) document.fonts.ready.then(layout);
+  var darkMq = window.matchMedia('(prefers-color-scheme: dark)');
+  if (darkMq.addEventListener) darkMq.addEventListener('change', retheme);
+  if (window.MutationObserver) new MutationObserver(retheme).observe(document.documentElement, { attributes: true, attributeFilter: ['data-theme'] });
 })();
 </script>
 <script>
