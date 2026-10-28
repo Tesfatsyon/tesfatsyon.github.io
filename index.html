@@ -18,7 +18,7 @@
    graphical abstract on a faint isometric drafting grid; below it the bio sits beside a profile card (CV, profiles,
    contact). The sections then run the full width, each closed under its heading until its arrow is clicked, with
    publications set like a reference list; inside them, longer details (thesis and coursework, responsibilities,
-   abstracts and citations) are folded under labels that open with a click. Colour: a deep forest green (#163619) for
+   abstracts and citations, the tools under each skill) are folded under labels that open with a click. Colour: a deep forest green (#163619) for
    the menu bar, masthead and footer, a brighter green (#66b032, near but not NVIDIA's #76b900) for section rules, and
    a deeper green for text accents; the drawings use light green ink on the masthead's green, with teal and amber only
    for cool and warm flows. */
@@ -331,14 +331,16 @@ ul { margin: 0; padding: 0; list-style: none; }
    rings at the edges in view */
 @media (prefers-reduced-motion: no-preference) {
   @supports (interpolate-size: allow-keywords) {
-    .fold, .sec { interpolate-size: allow-keywords; }
-    .fold::details-content, .sec::details-content { height: 0; overflow: clip; overflow-clip-margin: 0.5rem; transition: height 0.25s ease, content-visibility 0.25s allow-discrete; }
-    .fold[open]::details-content, .sec[open]::details-content { height: auto; }
+    .fold, .sec, .skill { interpolate-size: allow-keywords; }
+    .fold::details-content, .sec::details-content, .skill::details-content { height: 0; overflow: clip; overflow-clip-margin: 0.5rem; transition: height 0.25s ease, content-visibility 0.25s allow-discrete; }
+    .fold[open]::details-content, .sec[open]::details-content, .skill[open]::details-content { height: auto; }
   }
 }
-/* Bullet lists: a small dot in the rule colour before each item; lists of short items run in two columns */
+/* Bullet lists: a small dot in the rule colour before each item; lists of short items run down two columns, so an item
+   that wraps leaves no gap beside it */
 .bullets { display: grid; gap: 0.25rem 1.75rem; font-family: var(--sans); font-size: 0.9rem; line-height: 1.55; color: var(--ink-2); }
-.bullets.two-col { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+.bullets.two-col { display: block; columns: 2; column-gap: 1.75rem; }
+.bullets.two-col li { break-inside: avoid; padding-bottom: 0.25rem; }
 .bullets li { position: relative; padding-left: 1rem; }
 .bullets li::before { content: ""; position: absolute; left: 0.15rem; top: calc(0.775em - 2.5px); width: 5px; height: 5px; border-radius: 50%; background: var(--brand-rule); }
 /* Education details: labelled facts (thesis, supervisors, grades, coursework) in a fold */
@@ -363,11 +365,19 @@ ul { margin: 0; padding: 0; list-style: none; }
 .honors .yr { padding-top: 0.2rem; font-family: var(--mono); font-size: 0.78rem; color: var(--ink-3); white-space: nowrap; }
 .honors .btn { justify-self: start; margin-top: 0.4rem; }
 
-/* Skills: groups of short tags, each under an icon badge and a label */
-.skills { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 1.6rem 3rem; }
-.skill { display: flex; align-items: flex-start; gap: 0.85rem; }
-.skill > div { min-width: 0; }
-.skill h3 { padding-top: 0.2rem; font-family: var(--serif); font-weight: 600; font-size: 1.02rem; line-height: 1.4; }
+/* Skills: groups of short tags, each in a <details> under an icon badge and a label. The label row is the button, with
+   a small copy of the section arrow that points down when the group is closed and up when it is open; the tags line
+   up under the label. */
+.skills { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); align-items: start; gap: 1.1rem 3rem; }
+.skill > summary { display: flex; align-items: center; gap: 0.85rem; list-style: none; cursor: pointer; user-select: none; }
+.skill > summary::-webkit-details-marker { display: none; }
+.skill h3 { flex: 1; min-width: 0; font-family: var(--serif); font-weight: 600; font-size: 1.02rem; line-height: 1.4; }
+.skill > summary:hover h3, .skill[open] > summary h3 { color: var(--accent); }
+.sec-arrow.sm { width: 1.6rem; height: 1.6rem; }
+.sec-arrow.sm::before { width: 0.38rem; height: 0.38rem; transform: translateY(-0.1rem) rotate(45deg); }
+.skill[open] > summary .sec-arrow.sm::before { transform: translateY(0.1rem) rotate(225deg); }
+.skill > summary:hover .sec-arrow, .skill[open] > summary .sec-arrow { color: var(--accent); border-color: var(--accent); }
+.skill .chips { padding: 0 0 0.2rem 3.1rem; }
 .chips { display: flex; flex-wrap: wrap; gap: 0.4rem; margin-top: 0.5rem; }
 .chips li { padding: 0.32rem 0.66rem; font: 500 0.8rem/1.25 var(--sans); color: var(--ink-2); background: var(--tint); border-radius: 999px; }
 
@@ -379,7 +389,7 @@ ul { margin: 0; padding: 0; list-style: none; }
   .card { max-width: 30rem; }
   .themes { grid-template-columns: minmax(0, 1fr); }
   .cols { grid-template-columns: minmax(0, 1fr); }
-  .bullets.two-col { grid-template-columns: minmax(0, 1fr); }
+  .bullets.two-col { columns: 1; }
   .skills { grid-template-columns: minmax(0, 1fr); }
 }
 /* Below 64rem the menu needs the full width, so it moves under the name */
@@ -590,15 +600,24 @@ ul { margin: 0; padding: 0; list-style: none; }
                     <dd>
                       <ul class="bullets two-col">
                         <li>Advanced Heat Transfer</li>
+                        <li>Statistical and Nonequilibrium Thermodynamics</li>
                         <li>Computational Fluid Dynamics</li>
                         <li>Numerical Methods in Heat Transfer</li>
                         <li>Finite Element Method</li>
+                        <li>Partial Differential Equations</li>
+                        <li>Algorithms and Program of Heat Balances</li>
                         <li>Trigeneration, Cooling and Heating Technologies</li>
                         <li>Energy Efficiency</li>
+                        <li>Energy Transport</li>
                         <li>Advanced Renewable Energy Sources</li>
                         <li>Future Power Technologies</li>
-                        <li>Neural Networks</li>
                         <li>Nuclear Reactor Modelling and Simulation</li>
+                        <li>Mathematical Modelling and Process Identification</li>
+                        <li>Signals and Identification Methods</li>
+                        <li>Neural Networks</li>
+                        <li>Energy Policy and Law</li>
+                        <li>Project Management</li>
+                        <li>Information Systems in Management</li>
                       </ul>
                     </dd>
                   </dl>
@@ -620,6 +639,25 @@ ul { margin: 0; padding: 0; list-style: none; }
                   <dl class="facts">
                     <dt>CGPA</dt>
                     <dd>3.61 / 4.0 (90.25%)</dd>
+                    <dt>Major courses</dt>
+                    <dd>
+                      <ul class="bullets two-col">
+                        <li>Engineering Thermodynamics I and II</li>
+                        <li>Heat Transfer</li>
+                        <li>Fluid Mechanics</li>
+                        <li>Refrigeration and Air Conditioning</li>
+                        <li>Aerodynamics</li>
+                        <li>Turbomachinery</li>
+                        <li>Power Plant Engineering</li>
+                        <li>Numerical Methods</li>
+                        <li>Introduction to Finite Element Method</li>
+                        <li>Probability and Statistics for Engineers</li>
+                        <li>Introduction to Computer Programming</li>
+                        <li>Regulation and Control</li>
+                        <li>Instrumentation and Measurement</li>
+                        <li>Machine Drawing with CAD</li>
+                      </ul>
+                    </dd>
                   </dl>
                 </details>
               </div>
@@ -923,48 +961,30 @@ ul { margin: 0; padding: 0; list-style: none; }
         <summary><h2>Skills</h2><span class="sec-arrow" aria-hidden="true"></span></summary>
         <div class="sec-body">
           <div class="skills">
-            <article class="skill">
-              <span class="icon-badge sm" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="3.5" y="3.5" width="10" height="17" rx="1"/><path d="M6.5 7.5h4M6.5 11h4M6.5 14.5h4"/><path d="M13.5 9.5h6a1 1 0 0 1 1 1v10h-7"/><path d="M16.5 13h1.5M16.5 16.5h1.5"/></svg></span>
-              <div>
-                <h3>Building performance simulation</h3>
-                <ul class="chips"><li>DesignBuilder</li><li>EnergyPlus</li><li>OpenStudio</li><li>IES VE</li></ul>
-              </div>
-            </article>
-            <article class="skill">
-              <span class="icon-badge sm" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="m8 7.5-4.5 4.5L8 16.5M16 7.5l4.5 4.5-4.5 4.5M13.6 5l-3.2 14"/></svg></span>
-              <div>
-                <h3>Programming</h3>
-                <ul class="chips"><li>Python</li><li>C/C++</li><li>MATLAB</li><li>LaTeX</li></ul>
-              </div>
-            </article>
-            <article class="skill">
-              <span class="icon-badge sm" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="5" cy="6" r="2"/><circle cx="5" cy="18" r="2"/><circle cx="12" cy="12" r="2"/><circle cx="19" cy="6" r="2"/><circle cx="19" cy="18" r="2"/><path d="M6.5 7.3l4 3.4M6.5 16.7l4-3.4M13.5 10.7l4-3.4M13.5 13.3l4 3.4"/></svg></span>
-              <div>
-                <h3>Machine learning</h3>
-                <ul class="chips"><li>Neural networks</li><li>Surrogate modelling</li><li>Time-series forecasting</li></ul>
-              </div>
-            </article>
-            <article class="skill">
-              <span class="icon-badge sm" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2.8 20 7.4v9.2L12 21.2 4 16.6V7.4z"/><path d="M4 7.4l8 4.6 8-4.6M12 12v9.2"/></svg></span>
-              <div>
-                <h3>CAD and BIM</h3>
-                <ul class="chips"><li>Autodesk Revit</li><li>AutoCAD</li><li>SketchUp</li></ul>
-              </div>
-            </article>
-            <article class="skill">
-              <span class="icon-badge sm" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="3.5" width="16" height="7" rx="1.2"/><rect x="4" y="13.5" width="16" height="7" rx="1.2"/><path d="M7.5 7h.01M7.5 17h.01M11 7h5.5M11 17h5.5"/></svg></span>
-              <div>
-                <h3>High-performance computing</h3>
-                <ul class="chips"><li>SHARCNET</li><li>Compute Ontario</li><li>Parallel programming</li></ul>
-              </div>
-            </article>
-            <article class="skill">
-              <span class="icon-badge sm" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3c2.5 2.6 3.8 5.6 3.8 9s-1.3 6.4-3.8 9c-2.5-2.6-3.8-5.6-3.8-9S9.5 5.6 12 3z"/></svg></span>
-              <div>
-                <h3>Languages</h3>
-                <ul class="chips"><li>Amharic (native)</li><li>English (C1, professional)</li><li>Polish (B1)</li></ul>
-              </div>
-            </article>
+            <details class="skill">
+              <summary><span class="icon-badge sm" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="3.5" y="3.5" width="10" height="17" rx="1"/><path d="M6.5 7.5h4M6.5 11h4M6.5 14.5h4"/><path d="M13.5 9.5h6a1 1 0 0 1 1 1v10h-7"/><path d="M16.5 13h1.5M16.5 16.5h1.5"/></svg></span><h3>Building performance simulation</h3><span class="sec-arrow sm" aria-hidden="true"></span></summary>
+              <ul class="chips"><li>DesignBuilder</li><li>EnergyPlus</li><li>OpenStudio</li><li>IES VE</li></ul>
+            </details>
+            <details class="skill">
+              <summary><span class="icon-badge sm" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="m8 7.5-4.5 4.5L8 16.5M16 7.5l4.5 4.5-4.5 4.5M13.6 5l-3.2 14"/></svg></span><h3>Programming</h3><span class="sec-arrow sm" aria-hidden="true"></span></summary>
+              <ul class="chips"><li>Python</li><li>C/C++</li><li>MATLAB</li><li>LaTeX</li></ul>
+            </details>
+            <details class="skill">
+              <summary><span class="icon-badge sm" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="5" cy="6" r="2"/><circle cx="5" cy="18" r="2"/><circle cx="12" cy="12" r="2"/><circle cx="19" cy="6" r="2"/><circle cx="19" cy="18" r="2"/><path d="M6.5 7.3l4 3.4M6.5 16.7l4-3.4M13.5 10.7l4-3.4M13.5 13.3l4 3.4"/></svg></span><h3>Machine learning</h3><span class="sec-arrow sm" aria-hidden="true"></span></summary>
+              <ul class="chips"><li>Neural networks</li><li>Surrogate modelling</li><li>Time-series forecasting</li></ul>
+            </details>
+            <details class="skill">
+              <summary><span class="icon-badge sm" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2.8 20 7.4v9.2L12 21.2 4 16.6V7.4z"/><path d="M4 7.4l8 4.6 8-4.6M12 12v9.2"/></svg></span><h3>CAD and BIM</h3><span class="sec-arrow sm" aria-hidden="true"></span></summary>
+              <ul class="chips"><li>Autodesk Revit</li><li>AutoCAD</li><li>SketchUp</li><li>Onshape</li></ul>
+            </details>
+            <details class="skill">
+              <summary><span class="icon-badge sm" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="3.5" width="16" height="7" rx="1.2"/><rect x="4" y="13.5" width="16" height="7" rx="1.2"/><path d="M7.5 7h.01M7.5 17h.01M11 7h5.5M11 17h5.5"/></svg></span><h3>High-performance computing</h3><span class="sec-arrow sm" aria-hidden="true"></span></summary>
+              <ul class="chips"><li>SHARCNET</li><li>Compute Ontario</li><li>Parallel programming</li></ul>
+            </details>
+            <details class="skill">
+              <summary><span class="icon-badge sm" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3c2.5 2.6 3.8 5.6 3.8 9s-1.3 6.4-3.8 9c-2.5-2.6-3.8-5.6-3.8-9S9.5 5.6 12 3z"/></svg></span><h3>Languages</h3><span class="sec-arrow sm" aria-hidden="true"></span></summary>
+              <ul class="chips"><li>Amharic (native)</li><li>English (C1, professional)</li><li>Polish (B1)</li></ul>
+            </details>
           </div>
         </div>
       </details>
