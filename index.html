@@ -220,17 +220,16 @@ ul { margin: 0; padding: 0; list-style: none; }
 }
 @media (max-width: 560px) { .abstract-art { aspect-ratio: 3 / 2; } }
 @media (prefers-reduced-motion: reduce) { .abstract-art .scene { transition: none; } }
-/* Phones: the topics stay on one line, more tightly spaced and sized to the column's width (on the narrowest screens,
-   where that would be too small to read, they are left out), the name is set a size smaller so it clears the right
-   margin, and the three theme buttons share one row, each name over two lines above its own bar. */
+/* Phones: the topics line is left out (the theme buttons under the drawings name the same themes), the name is set a
+   size smaller so it clears the right margin, and the three theme buttons share one row, each name over two lines
+   above its own bar. */
 @media (max-width: 600px) {
-  .kicker { white-space: nowrap; font-size: 0.6rem; font-size: min(0.72rem, 2.85cqi); letter-spacing: 0.06em; }
+  .kicker { display: none; }
   .name { font-size: clamp(1.4rem, 7.6cqi, 2.25rem); }
   .reel-tabs { display: grid; grid-template-columns: repeat(3, auto); column-gap: 1rem; }
   .tab { text-align: left; }
   .tab span { display: block; }
 }
-@media (max-width: 359px) { .kicker { display: none; } }
 
 /* About: bio and profile card */
 .hero { padding-block: clamp(2rem, 4.5vw, 2.75rem) 3rem; }
