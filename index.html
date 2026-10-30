@@ -171,7 +171,6 @@ ul { margin: 0; padding: 0; list-style: none; }
 .mast-photo { display: block; width: 8.5rem; height: 8.5rem; margin-bottom: 0.5rem; padding: 4px; background: var(--fig); border: 1.5px solid var(--brand-rule); border-radius: 50%; }
 .kicker { font-family: var(--sans); font-size: 0.72rem; font-weight: 600; letter-spacing: 0.12em; text-transform: uppercase; color: var(--accent); text-wrap: balance; }
 .kicker span { white-space: nowrap; }
-.kicker .sep { white-space: normal; }
 /* The full name on one line, as wide as the column allows and at most 3rem */
 .name { font-family: var(--serif); font-weight: 400; font-size: 2rem; font-size: clamp(1.4rem, 8.8cqi, 3rem); line-height: 1.1; letter-spacing: -0.01em; white-space: nowrap; }
 .name b { font-weight: 700; }
@@ -221,19 +220,17 @@ ul { margin: 0; padding: 0; list-style: none; }
 }
 @media (max-width: 560px) { .abstract-art { aspect-ratio: 3 / 2; } }
 @media (prefers-reduced-motion: reduce) { .abstract-art .scene { transition: none; } }
-/* Phones: the topics wrap without a dot left at the end of the first line (each topic after the first carries its own
-   dot in the gap before it, clipped off when the topic starts a line), the name is set a size smaller so it clears
-   the right margin, and the three theme buttons share one row, each name over two lines above its own bar. */
+/* Phones: the topics stay on one line, more tightly spaced and sized to the column's width (on the narrowest screens,
+   where that would be too small to read, they are left out), the name is set a size smaller so it clears the right
+   margin, and the three theme buttons share one row, each name over two lines above its own bar. */
 @media (max-width: 600px) {
-  .kicker { display: flex; flex-wrap: wrap; column-gap: 1.25em; overflow: hidden; }
-  .kicker .sep { display: none; }
-  .kicker span { position: relative; }
-  .kicker .sep + span::before { content: "·"; position: absolute; left: -0.8em; }
+  .kicker { white-space: nowrap; font-size: 0.6rem; font-size: min(0.72rem, 2.85cqi); letter-spacing: 0.06em; }
   .name { font-size: clamp(1.4rem, 7.6cqi, 2.25rem); }
   .reel-tabs { display: grid; grid-template-columns: repeat(3, auto); column-gap: 1rem; }
   .tab { text-align: left; }
   .tab span { display: block; }
 }
+@media (max-width: 359px) { .kicker { display: none; } }
 
 /* About: bio and profile card */
 .hero { padding-block: clamp(2rem, 4.5vw, 2.75rem) 3rem; }
@@ -510,7 +507,7 @@ ul { margin: 0; padding: 0; list-style: none; }
     <div class="wrap mast">
       <div class="mast-text">
         <img class="mast-photo" src="photo.jpg" width="380" height="380" alt="Portrait of Tesfatsyon Simon Ochono">
-        <p class="kicker"><span>Building Energy</span><span class="sep">&nbsp;· </span><span>Climate Adaptation</span><span class="sep">&nbsp;· </span><span>Machine Learning</span></p>
+        <p class="kicker"><span>Building Energy</span>&nbsp;· <span>Climate Adaptation</span>&nbsp;· <span>Machine Learning</span></p>
         <h1 class="name" id="name">Tesfatsyon Simon <b>Ochono</b></h1>
         <p class="role"><strong>PhD Candidate</strong><br>Civil &amp; Environmental Eng’g (Smart&nbsp;Cities)<br>Western University, London, Ontario, Canada</p>
         <p class="mast-actions"><span class="cv-btn">
