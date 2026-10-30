@@ -220,12 +220,12 @@ ul { margin: 0; padding: 0; list-style: none; }
 }
 @media (max-width: 560px) { .abstract-art { aspect-ratio: 3 / 2; } }
 @media (prefers-reduced-motion: reduce) { .abstract-art .scene { transition: none; } }
-/* Phones: the topics line is left out (the theme buttons under the drawings name the same themes), the name is set a
-   size smaller so it clears the right margin, and the three theme buttons share one row, each name over two lines
-   above its own bar. */
+/* Phones: the topics line is left out (the theme buttons under the drawings name the same themes), the name is set at
+   one size, about one and a half times the name in the menu bar, and the three theme buttons share one row, each name
+   over two lines above its own bar. */
 @media (max-width: 600px) {
   .kicker { display: none; }
-  .name { font-size: clamp(1.4rem, 7.6cqi, 2.25rem); }
+  .name { font-size: 1.5rem; }
   .reel-tabs { display: grid; grid-template-columns: repeat(3, auto); column-gap: 1rem; }
   .tab { text-align: left; }
   .tab span { display: block; }
